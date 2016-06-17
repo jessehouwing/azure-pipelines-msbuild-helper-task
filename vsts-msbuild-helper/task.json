@@ -1,0 +1,56 @@
+{
+  "id": "9fcb05af-0ffe-4687-99f2-99821aad927e",
+  "name": "MsBuildHelperTask",
+  "friendlyName": "Setup MsBuild Additional Arguments",
+  "description": "Setup MsBuild Additional Arguments.",
+  "helpMarkDown": "Version: #{Build.BuildNumber}#. [More Information](https://github.com/jessehouwing/vsts-msbuild-helper-task/wiki/)",
+  "category": "Build",
+  "author": "Jesse Houwing",
+  "version": {
+    "Major": 0,
+    "Minor": 0,
+    "Patch": 0
+  },
+  "visibility": [
+    "Build"
+  ],
+  "minimumAgentVersion": "1.83.0",
+  "groups": [
+    {
+      "name": "CodeAnalysis",
+      "displayName": "Code analysis",
+      "isExpanded": true
+    }
+  ],
+  "inputs": [
+    {
+      "defaultValue": "MsBuildAdditionalArguments",
+      "helpMarkdown": "Variable to set. Only supply the variable name and do not include `$(...)`.",
+      "label": "Output Variable",
+      "name": "variableName",
+      "required": true,
+      "type": "string"
+    },
+    {
+      "defaultValue": "",
+      "groupName": "CodeAnalysis",
+      "helpMarkdown": "Run Code Analaysis during build",
+      "label": "Run code analysis",
+      "name": "RunCodeAnalysis",
+      "options": {
+        "": "AsConfigured",
+        "true": "Always",
+        "false": "Never"
+      },
+      "required": true,
+      "type": "pickList"
+    }
+  ],
+  "instanceNameFormat": "Setup MsBuild Additional Arguments",
+  "execution": {
+    "Node": {
+      "target": "vsts-msbuild-helper.js",
+      "argumentFormat": ""
+    }
+  }
+}

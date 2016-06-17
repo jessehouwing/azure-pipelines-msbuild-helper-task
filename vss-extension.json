@@ -1,0 +1,82 @@
+{
+  "manifestVersion": 1,
+  "id": "jessehouwing-vsts-msbuild-helper-task",
+  "name": "MsBuild Helper Tasks",
+  "version": "0.0.0",
+  "publisher": "jessehouwing",
+  "targets": [
+    {
+      "id": "Microsoft.VisualStudio.Services"
+    }
+  ],
+  "scope": [
+    "vso.build"
+  ],
+  "description": "Task to help you set those pesky MsBuild Properties.",
+  "categories": [
+    "Build and release"
+  ],
+  "tags": [
+    "Extension",
+    "Build",
+    "Variable",
+    "Property",
+    "Code Analysis",
+    "Layer Validation",
+    "Template"
+  ],
+  "screenshots": [
+    {
+      "path": "extension/Images/extension-icon.png"
+    }
+  ],
+  "content": {
+    "details": {
+      "path": "readme.md"
+    },
+    "license": {
+      "path": "license.txt"
+    }
+  },
+  "links": {
+    "getstarted": {
+      "uri": "https://github.com/jessehouwing/vsts-msbuild-helper-task/wiki"
+    },
+    "support": {
+      "uri": "https://github.com/jessehouwing/vsts-msbuild-helper-task/issues"
+    }
+  },
+  "branding": {
+    "color": "rgb(36, 43, 50)",
+    "theme": "dark"
+  },
+  "icons": {
+    "default": "extension/images/extension-icon.png"
+  },
+  "files": [
+    {
+      "path": "vsts-msbuild-helper-task/vsts-msbuild-helper.js"
+    },
+    {
+      "path": "vsts-msbuild-helper-task/node_modules/vsts-task-lib"
+    },
+    {
+      "path": "vsts-msbuild-helper-task/task.json"
+    },
+    {
+      "path": "vsts-msbuild-helper-task/icon.png"
+    }
+  ],
+  "contributions": [
+    {
+      "id": "vsts-msbuild-helper",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "vsts-msbuild-helper"
+      }
+    }
+  ]
+}

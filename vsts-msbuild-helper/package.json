@@ -1,0 +1,20 @@
+{
+  "name": "vsts-msbuild-helper-task",
+  "version": "0.0.0",
+  "description": "MsBuild Helper",
+  "author": {
+    "name": "Jesse Houwing",
+    "email": "jesse.houwing@gmail.com"
+  },
+  "dependencies": {
+    "vsts-task-lib": "^0.7.2"
+  },
+  "scripts": {
+    "initdev:npm": "npm install",
+    "initdev:typings": "typings install",
+    "initdev": "npm run initdev:npm  && npm run initdev:typings"
+  },
+  "devDependencies": {
+    "typings": "^0.8.1"
+  }
+}
