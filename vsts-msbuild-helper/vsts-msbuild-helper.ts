@@ -4,7 +4,53 @@ import tl = require("vsts-task-lib/task");
 let msbuildAdditionalArguments: string[] = new Array<string>();
 const variableName = tl.getInput("variableName", true);
 
+// ensure we don't override already set values
+const existingArguments = tl.getVariable(variableName);
+if (existingArguments) {
+    msbuildAdditionalArguments.push(existingArguments);
+}
+
 // MSBUILD
+const outputPath = tl.getInput("MsBuildOutputPath", false);
+if (outputPath && outputPath !== "AsConfigured") {
+    let path: string;
+    switch (outputPath) {
+        case "BinariesDirectory":
+            path = tl.getVariable("Build.BinariesDirectory");
+            break;
+
+        case "StagingDirectory":
+            path = tl.getVariable("Build.StagingDirectory");
+            break;
+
+        case "Custom":
+            path = tl.getInput("MsBuildCustomBaseOutputPath", true);
+            break;
+    }
+
+    msbuildAdditionalArguments.push(`/p:OutputPath=${path}`);
+}
+
+const baseOutputPath = tl.getInput("MsBuildBaseOutputPath", false);
+if (baseOutputPath && baseOutputPath !== "AsConfigured") {
+    let path: string;
+    switch (baseOutputPath) {
+        case "BinariesDirectory":
+            path = tl.getVariable("Build.BinariesDirectory");
+            break;
+
+        case "StagingDirectory":
+            path = tl.getVariable("Build.StagingDirectory");
+            break;
+
+        case "Custom":
+            path = tl.getPathInput("MsBuildCustomBaseOutputPath", true);
+            break;
+    }
+
+    msbuildAdditionalArguments.push(`/p:BaseOutputPath=${path}`);
+}
+
 const treatWarningsAsErrors = tl.getInput("MsBuildTreatWarningsAsErrors", false);
 if (treatWarningsAsErrors && treatWarningsAsErrors !== "AsConfigured") {
     msbuildAdditionalArguments.push(`/p:TreatWarningsAsErrors=${treatWarningsAsErrors}`);

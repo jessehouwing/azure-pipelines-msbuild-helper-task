@@ -17,6 +17,11 @@
   "minimumAgentVersion": "1.83.0",
   "groups": [
     {
+      "name": "MsBuildbasic",
+      "displayName": "MsBuild - Basic",
+      "isExpanded": false
+    },
+    {
       "name": "MsBuild",
       "displayName": "MsBuild",
       "isExpanded": false
@@ -40,6 +45,58 @@
       "name": "variableName",
       "required": true,
       "type": "string"
+    },
+
+    {
+      "defaultValue": "AsConfigured",
+      "groupName": "MsBuildBasic",
+      "helpMarkdown": "Base Output Path",
+      "label": "Base Output Path",
+      "name": "MsBuildBaseOutputPath",
+      "options": {
+        "AsConfigured": "As Configured",
+        "Custom": "Custom",
+        "BinariesDirectory": "Binaries Directory",
+        "StagingDirectory": "Staging Directory"
+      },
+      "required": false,
+      "type": "pickList"
+    },
+    {
+      "defaultValue": "",
+      "groupName": "MsBuildBasic",
+      "helpMarkdown": "Base Output Path",
+      "label": "Custom Base Output Path",
+      "name": "MsBuildCustomBaseOutputPath",
+      "required": true,
+      "type": "filePath",
+      "visibleRule": "MsBuildBaseOutputPath=Custom"
+    },
+
+    {
+      "defaultValue": "AsConfigured",
+      "groupName": "MsBuildBasic",
+      "helpMarkdown": "Output Path",
+      "label": "Output Path",
+      "name": "MsBuildOutputPath",
+      "options": {
+        "AsConfigured": "As Configured",
+        "Custom": "Custom",
+        "BinariesDirectory": "Binaries Directory",
+        "StagingDirectory": "Staging Directory"
+      },
+      "required": false,
+      "type": "pickList"
+    },
+    {
+      "defaultValue": "",
+      "groupName": "MsBuildBasic",
+      "helpMarkdown": "Output Path",
+      "label": "Custom Output Path",
+      "name": "MsBuildCustomOutputPath",
+      "required": true,
+      "type": "string",
+      "visibleRule": "MsBuildOutputPath=Custom"
     },
 
     {
