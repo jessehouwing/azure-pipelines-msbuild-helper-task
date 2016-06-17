@@ -22,7 +22,7 @@
       "isExpanded": false
     },
     {
-      "name": "MsBuildbasic",
+      "name": "MsBuildBasic",
       "displayName": "MsBuild - Basic",
       "isExpanded": false
     },
@@ -161,7 +161,7 @@
       "required": false,
       "type": "pickList",
       "options": {
-        "AsConfigured": "AsConfigured",
+        "AsConfigured": "As Configured",
         "true": "Always",
         "false": "Never"
       }
@@ -182,7 +182,7 @@
       "label": "Treat Warnings As Error",
       "name": "TreatWarningsAsError",
       "options": {
-        "AsConfigured": "AsConfigured",
+        "AsConfigured": "As Configured",
         "true": "Always",
         "false": "Never"
       },
@@ -198,7 +198,7 @@
       "required": false,
       "type": "pickList",
       "options": {
-        "AsConfigured": "AsConfigured",
+        "AsConfigured": "As Configured",
         "true": "Always",
         "false": "Never"
       }
@@ -213,7 +213,7 @@
       "label": "Run Code Analysis",
       "name": "RunCodeAnalysis",
       "options": {
-        "AsConfigured": "AsConfigured",
+        "AsConfigured": "As Configured",
         "true": "Always",
         "false": "Never"
       },
@@ -285,7 +285,7 @@
       "label": "Run Layer Validation",
       "name": "ValidateArchitecture",
       "options": {
-        "AsConfigured": "AsConfigured",
+        "AsConfigured": "As Configured",
         "true": "Always",
         "false": "Never"
       },

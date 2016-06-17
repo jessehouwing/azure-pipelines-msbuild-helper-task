@@ -44,7 +44,7 @@ if (outputPath && outputPath !== "AsConfigured") {
             break;
 
         case "Custom":
-            path = tl.getInput("MsBuildCustomBaseOutputPath", true);
+            path = tl.getInput("MsBuildCustomOutputPath", true);
             break;
     }
 
@@ -83,7 +83,7 @@ if (generateDocumentation && generateDocumentation !== "AsConfigured") {
 
 const buildInParallel = tl.getInput("MsBuildBuildInParallel", false);
 if (buildInParallel && buildInParallel !== "AsConfigured") {
-    msbuildAdditionalArguments.push(`/p:BuildInParallel=${treatWarningsAsErrors}`);
+    msbuildAdditionalArguments.push(`/p:BuildInParallel=${buildInParallel}`);
 }
 
 const maxCpuCount = +tl.getInput("MsBuildMaxCpuCount", false);
