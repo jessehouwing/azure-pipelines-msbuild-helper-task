@@ -86,8 +86,8 @@ if (buildInParallel && buildInParallel !== "AsConfigured") {
     msbuildAdditionalArguments.push(`/p:BuildInParallel=${buildInParallel}`);
 }
 
-const maxCpuCount = +tl.getInput("MsBuildMaxCpuCount", false);
-if (buildInParallel) {
+const maxCpuCount = tl.getInput("MsBuildMaxCpuCount", false);
+if (maxCpuCount) {
     msbuildAdditionalArguments.push(`/m:${maxCpuCount}`);
 }
 
