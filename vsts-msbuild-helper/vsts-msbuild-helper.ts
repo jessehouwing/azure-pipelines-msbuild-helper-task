@@ -26,7 +26,7 @@ if (runCodeAnalysis !== "" && runCodeAnalysis !== "AsConfigured") {
 const codeAnalysisRuleset = tl.getInput("CodeAnalysisRuleset", false);
 if (codeAnalysisRuleset !== "" && codeAnalysisRuleset !== "AsConfigured") {
     if (codeAnalysisRuleset !== "Custom") {
-        msbuildAdditionalArguments.push(`/p:CodeAnalysisRuleset=${codeAnalysisRuleset}`);
+        msbuildAdditionalArguments.push(`/p:CodeAnalysisRuleset=${codeAnalysisRuleset}.ruleset`);
     } else {
         const customCodeAnalysisRuleset = tl.getPathInput("CustomCodeAnalysisRuleset", true);
         msbuildAdditionalArguments.push(`/p:CodeAnalysisRuleset=${customCodeAnalysisRuleset}`);
