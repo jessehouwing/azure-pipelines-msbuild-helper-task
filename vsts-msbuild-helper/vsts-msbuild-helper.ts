@@ -5,11 +5,14 @@ let msbuildAdditionalArguments: string[] = new Array<string>();
 const variableName = tl.getInput("variableName", true);
 
 // MSBUILD
-const buildInParallel = tl.getBoolInput("MsBuildBuildInParallel", false);
-if (buildInParallel) {
-    msbuildAdditionalArguments.push(`/p:BuildInParallel=true`);
-} else {
-    msbuildAdditionalArguments.push(`/p:BuildInParallel=false`);
+const treatWarningsAsErrors = tl.getInput("MsBuildTreatWarningsAsErrors", false);
+if (treatWarningsAsErrors && treatWarningsAsErrors !== "AsConfigured") {
+    msbuildAdditionalArguments.push(`/p:TreatWarningsAsErrors=${treatWarningsAsErrors}`);
+}
+
+const buildInParallel = tl.getInput("MsBuildBuildInParallel", false);
+if (buildInParallel && buildInParallel !== "AsConfigured") {
+    msbuildAdditionalArguments.push(`/p:BuildInParallel=${treatWarningsAsErrors}`);
 }
 
 const maxCpuCount = +tl.getInput("MsBuildMaxCpuCount", false);
@@ -19,12 +22,12 @@ if (buildInParallel) {
 
 // CODE ANALYSIS
 const runCodeAnalysis = tl.getInput("RunCodeAnalysis", false);
-if (runCodeAnalysis !== "" && runCodeAnalysis !== "AsConfigured") {
+if (runCodeAnalysis && runCodeAnalysis !== "AsConfigured") {
     msbuildAdditionalArguments.push(`/p:RunCodeAnalysis=${runCodeAnalysis}`);
 }
 
 const codeAnalysisRuleset = tl.getInput("CodeAnalysisRuleset", false);
-if (codeAnalysisRuleset !== "" && codeAnalysisRuleset !== "AsConfigured") {
+if (codeAnalysisRuleset && codeAnalysisRuleset !== "AsConfigured") {
     if (codeAnalysisRuleset !== "Custom") {
         msbuildAdditionalArguments.push(`/p:CodeAnalysisRuleset=${codeAnalysisRuleset}.ruleset`);
     } else {
@@ -45,7 +48,7 @@ if (codeAnalysisAdditionalArguments) {
 
 // LAYER VALIDATION
 const validateArchitecture = tl.getInput("ValidateArchitecture", false);
-if (validateArchitecture !== "" && validateArchitecture !== "AsConfigured") {
+if (validateArchitecture && validateArchitecture !== "AsConfigured") {
     msbuildAdditionalArguments.push(`/p:ValidateArchitecture=${validateArchitecture}`);
 }
 

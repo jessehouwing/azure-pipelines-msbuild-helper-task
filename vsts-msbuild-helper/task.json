@@ -43,29 +43,49 @@
     },
 
     {
-      "defaultValue": "false",
+      "defaultValue": "AsConfigured",
       "groupName": "MsBuild",
       "helpMarkdown": "Build multiple projects in parallel",
       "label": "Build in Parallel",
       "name": "MsBuildBuildInParallel",
       "required": false,
-      "type": "boolean"
+      "type": "pickList",
+      "options": {
+        "AsConfigured": "AsConfigured",
+        "true": "Always",
+        "false": "Never"
+      }
     },
-
     {
       "defaultValue": "",
       "groupName": "MsBuild",
-      "helpMarkdown": "Maximum CPU Count (leave empty to use all available cores)", 
+      "helpMarkdown": "Maximum CPU Count (leave empty to use all available cores)",
       "label": "Maximum CPU Count",
       "name": "MsBuildMaxCpuCount",
       "required": false,
       "type": "string"
     },
+    {
+      "defaultValue": "AsConfigured",
+      "groupName": "MsBuild",
+      "helpMarkdown": "Treat Warnings as Errors",
+      "label": "Treat Warnings As Error",
+      "name": "TreatWarningsAsError",
+      "options": {
+        "AsConfigured": "AsConfigured",
+        "true": "Always",
+        "false": "Never"
+      },
+      "required": false,
+      "type": "pickList"
+    },
+
+
 
     {
       "defaultValue": "AsConfigured",
       "groupName": "CodeAnalysis",
-      "helpMarkdown": "Run Code Analaysis during build",
+      "helpMarkdown": "Run Code Analysis during build",
       "label": "Run Code Analysis",
       "name": "RunCodeAnalysis",
       "options": {
@@ -137,7 +157,7 @@
     {
       "defaultValue": "AsConfigured",
       "groupName": "LayerValidation",
-      "helpMarkdown": "Run layer Validation during build",
+      "helpMarkdown": "Run Layer Validation during build",
       "label": "Run Layer Validation",
       "name": "ValidateArchitecture",
       "options": {
