@@ -11,6 +11,26 @@ if (existingArguments) {
 }
 
 // MSBUILD
+let msbuildTargets: string[] = new Array<string>();
+if (tl.getBoolInput("MsBuildTargetClean")) {
+    msbuildTargets.push("Clean");
+}
+if (tl.getBoolInput("MsBuildTargetBuild")) {
+    msbuildTargets.push("Build");
+}
+if (tl.getBoolInput("MsBuildTargetPackage")) {
+    msbuildTargets.push("Package");
+}
+if (tl.getBoolInput("MsBuildTargetDeploy")) {
+    msbuildTargets.push("Deploy");
+}
+const customMsBuildTargets: string[] = tl.getDelimitedInput("MsBuildTargetCustom", ";", false);
+msbuildTargets.push(...customMsBuildTargets);
+
+if (msbuildTargets.length > 0) {
+    msbuildAdditionalArguments.push(`/t:${msbuildTargets.join(";")}`);
+}
+
 const outputPath = tl.getInput("MsBuildOutputPath", false);
 if (outputPath && outputPath !== "AsConfigured") {
     let path: string;

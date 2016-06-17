@@ -17,13 +17,18 @@
   "minimumAgentVersion": "1.83.0",
   "groups": [
     {
+      "name": "MsBuildTargets",
+      "displayName": "MsBuild - Targets",
+      "isExpanded": false
+    },
+    {
       "name": "MsBuildbasic",
       "displayName": "MsBuild - Basic",
       "isExpanded": false
     },
     {
       "name": "MsBuild",
-      "displayName": "MsBuild",
+      "displayName": "MsBuild - Advanced",
       "isExpanded": false
     },
     {
@@ -46,6 +51,54 @@
       "required": true,
       "type": "string"
     },
+
+    {
+      "defaultValue": "false",
+      "groupName": "MsBuildTargets",
+      "helpMarkdown": "Clean",
+      "label": "Clean",
+      "name": "MsBuildTargetClean",
+      "required": false,
+      "type": "boolean"
+    },
+    {
+      "defaultValue": "false",
+      "groupName": "MsBuildTargets",
+      "helpMarkdown": "Build",
+      "label": "Build",
+      "name": "MsBuildTargetBuild",
+      "required": false,
+      "type": "boolean"
+    },
+    {
+      "defaultValue": "false",
+      "groupName": "MsBuildTargets",
+      "helpMarkdown": "Package",
+      "label": "Package",
+      "name": "MsBuildTargetPackage",
+      "required": false,
+      "type": "boolean"
+    },
+    {
+      "defaultValue": "false",
+      "groupName": "MsBuildTargets",
+      "helpMarkdown": "Deploy",
+      "label": "Deploy",
+      "name": "MsBuildTargetDeploy",
+      "required": false,
+      "type": "boolean"
+    },
+    {
+      "defaultValue": "",
+      "groupName": "MsBuildTargets",
+      "helpMarkdown": "Custom targets",
+      "label": "Custom",
+      "name": "MsBuildTargetCustom",
+      "required": false,
+      "type": "string"
+    },
+
+
 
     {
       "defaultValue": "AsConfigured",
