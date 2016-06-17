@@ -18,8 +18,13 @@
   "groups": [
     {
       "name": "CodeAnalysis",
-      "displayName": "Code analysis",
-      "isExpanded": true
+      "displayName": "Code Analysis",
+      "isExpanded": false
+    },
+    {
+      "name": "LayerValidation",
+      "displayName": "Layer Validation",
+      "isExpanded": false
     }
   ],
   "inputs": [
@@ -35,16 +40,89 @@
       "defaultValue": "",
       "groupName": "CodeAnalysis",
       "helpMarkdown": "Run Code Analaysis during build",
-      "label": "Run code analysis",
+      "label": "Run Code Analysis",
       "name": "RunCodeAnalysis",
       "options": {
         "": "AsConfigured",
         "true": "Always",
         "false": "Never"
       },
+      "required": false,
+      "type": "pickList"
+    },
+    {
+      "defaultValue": "",
+      "groupName": "CodeAnalysis",
+      "helpMarkdown": "Code Analysis Ruleset",
+      "label": "Code Analysis Ruleset",
+      "name": "CodeAnalysisRuleset",
+      "options": {
+        "": "AsConfigured",
+        "Custom": "Custom",
+        "AllRules": "All Rules",
+        "BasicCorrectnessRules": "Basic Correctness Rules",
+        "BasicDesignGuidelineRules": "Basic Design Guideline Rules",
+        "ExtendedCorrectnessRules": "Extended Correctness Rules",
+        "ExtendedDesignGuidelineRules": "Extended Design Guideline Rules",
+        "GlobalizationRules": "Globalization Rules",
+        "ManagedMinimumRules": "Managed Minimum Rules",
+        "MinimumRecommendedRules": "Minimum Recommended Rules",
+        "MixedMinimumRules": "Mixed Minimum Rules",
+        "MixedRecommendedRules": "Mixed Recommended Rules",
+        "NativeMinimumRules": "Native Minimum Rules",
+        "NativeRecommendedRules": "Native Recommended Rules",
+        "SecurityRules": "Security Rules"
+      },
+      "required": false,
+      "type": "pickList"
+    },
+    {
+      "defaultValue": "",
+      "groupName": "CodeAnalysis",
+      "helpMarkdown": "Code Analysis Ruleset",
+      "label": "Code Analysis Ruleset",
+      "name": "CustomCodeAnalysisRuleset",
       "required": true,
+      "type": "filePath",
+      "visibleRule": "CodeAnalysisRuleset = Custom"
+    },
+    {
+      "defaultValue": "false",
+      "groupName": "CodeAnalysis",
+      "helpMarkdown": "Treat Code Analysis Warnings as Errors",
+      "label": "Treat Code Analysis Warnings as Errors",
+      "name": "CodeAnalysisTreatWarningsAsErrors",
+      "required": false,
+      "type": "boolean"
+    },
+    {
+      "defaultValue": "",
+      "groupName": "CodeAnalysis",
+      "helpMarkdown": "Additional Code Analysis Arguments",
+      "label": "Additional Code Analysis Arguments",
+      "name": "CodeAnalysisAdditionalArguments",
+      "required": false,
+      "type": "string"
+    },
+
+
+
+
+    {
+      "defaultValue": "",
+      "groupName": "LayerValidation",
+      "helpMarkdown": "Run layer Validation during build",
+      "label": "Run Layer Validation",
+      "name": "ValidateArchitecture",
+      "options": {
+        "": "AsConfigured",
+        "true": "Always",
+        "false": "Never"
+      },
+      "required": false,
       "type": "pickList"
     }
+
   ],
   "instanceNameFormat": "Setup MsBuild Additional Arguments",
   "execution": {
