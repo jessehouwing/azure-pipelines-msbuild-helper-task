@@ -8,7 +8,11 @@
 
 # Description
 
-This extension contains a single task that helps you setup your MsBuild commandline parameters for common actions
+This extension contains a single task that helps you setup your MsBuild commandline parameters for common actions.
+
+Configure the task however you want and then add the following value to the MsBuild or Visual Studio Build task:
+
+> **MsBuild Arguments**: `$(MsBuildAdditionalArguments)`
 
 # Preview Notice
 
