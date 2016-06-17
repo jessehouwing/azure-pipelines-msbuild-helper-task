@@ -37,13 +37,13 @@
       "type": "string"
     },
     {
-      "defaultValue": "",
+      "defaultValue": "AsConfigured",
       "groupName": "CodeAnalysis",
       "helpMarkdown": "Run Code Analaysis during build",
       "label": "Run Code Analysis",
       "name": "RunCodeAnalysis",
       "options": {
-        "": "AsConfigured",
+        "AsConfigured": "AsConfigured",
         "true": "Always",
         "false": "Never"
       },
@@ -51,13 +51,13 @@
       "type": "pickList"
     },
     {
-      "defaultValue": "",
+      "defaultValue": "AsConfigured",
       "groupName": "CodeAnalysis",
       "helpMarkdown": "Code Analysis Ruleset",
       "label": "Code Analysis Ruleset",
       "name": "CodeAnalysisRuleset",
       "options": {
-        "": "AsConfigured",
+        "AsConfigured": "AsConfigured",
         "Custom": "Custom",
         "AllRules": "All Rules",
         "BasicCorrectnessRules": "Basic Correctness Rules",
@@ -109,13 +109,13 @@
 
 
     {
-      "defaultValue": "",
+      "defaultValue": "AsConfigured",
       "groupName": "LayerValidation",
       "helpMarkdown": "Run layer Validation during build",
       "label": "Run Layer Validation",
       "name": "ValidateArchitecture",
       "options": {
-        "": "AsConfigured",
+        "AsConfigured": "AsConfigured",
         "true": "Always",
         "false": "Never"
       },

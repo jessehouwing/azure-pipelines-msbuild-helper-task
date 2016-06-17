@@ -6,12 +6,12 @@ const variableName = tl.getInput("variableName", true);
 
 // CODE ANALYSIS
 const runCodeAnalysis = tl.getInput("RunCodeAnalysis", false);
-if (runCodeAnalysis !== "") {
+if (runCodeAnalysis !== "" && runCodeAnalysis !== "AsConfigured") {
     msbuildAdditionalArguments.push(`/p:RunCodeAnalysis=${runCodeAnalysis}`);
 }
 
 const codeAnalysisRuleset = tl.getInput("CodeAnalysisRuleset", false);
-if (codeAnalysisRuleset !== "") {
+if (codeAnalysisRuleset !== "" && codeAnalysisRuleset !== "AsConfigured") {
     if (codeAnalysisRuleset !== "Custom") {
         msbuildAdditionalArguments.push(`/p:CodeAnalysisRuleset=${codeAnalysisRuleset}`);
     } else {
@@ -32,7 +32,7 @@ if (codeAnalysisAdditionalArguments) {
 
 // LAYER VALIDATION
 const validateArchitecture = tl.getInput("ValidateArchitecture", false);
-if (validateArchitecture !== "") {
+if (validateArchitecture !== "" && validateArchitecture !== "AsConfigured") {
     msbuildAdditionalArguments.push(`/p:ValidateArchitecture=${validateArchitecture}`);
 }
 
