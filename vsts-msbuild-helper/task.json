@@ -17,6 +17,11 @@
   "minimumAgentVersion": "1.83.0",
   "groups": [
     {
+      "name": "MsBuild",
+      "displayName": "MsBuild",
+      "isExpanded": false
+    },
+    {
       "name": "CodeAnalysis",
       "displayName": "Code Analysis",
       "isExpanded": false
@@ -36,6 +41,27 @@
       "required": true,
       "type": "string"
     },
+
+    {
+      "defaultValue": "false",
+      "groupName": "MsBuild",
+      "helpMarkdown": "Build multiple projects in parallel",
+      "label": "Build in Parallel",
+      "name": "MsBuildBuildInParallel",
+      "required": false,
+      "type": "boolean"
+    },
+
+    {
+      "defaultValue": "",
+      "groupName": "MsBuild",
+      "helpMarkdown": "Maximum CPU Count (leave empty to use all available cores)", 
+      "label": "Maximum CPU Count",
+      "name": "MsBuildMaxCpuCount",
+      "required": false,
+      "type": "string"
+    },
+
     {
       "defaultValue": "AsConfigured",
       "groupName": "CodeAnalysis",

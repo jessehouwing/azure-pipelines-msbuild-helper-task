@@ -1,8 +1,21 @@
 ﻿///<reference path="./typings/main.d.ts" />
 import tl = require("vsts-task-lib/task");
 
-let msbuildAdditionalArguments: string[];
+let msbuildAdditionalArguments: string[] = new Array<string>();
 const variableName = tl.getInput("variableName", true);
+
+// MSBUILD
+const buildInParallel = tl.getBoolInput("MsBuildBuildInParallel", false);
+if (buildInParallel) {
+    msbuildAdditionalArguments.push(`/p:BuildInParallel=true`);
+} else {
+    msbuildAdditionalArguments.push(`/p:BuildInParallel=false`);
+}
+
+const maxCpuCount = +tl.getInput("MsBuildMaxCpuCount", false);
+if (buildInParallel) {
+    msbuildAdditionalArguments.push(`/m:${maxCpuCount}`);
+}
 
 // CODE ANALYSIS
 const runCodeAnalysis = tl.getInput("RunCodeAnalysis", false);
