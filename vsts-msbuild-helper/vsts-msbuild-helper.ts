@@ -30,8 +30,6 @@ if (codeAnalysisAdditionalArguments) {
     msbuildAdditionalArguments.push(codeAnalysisAdditionalArguments);
 }
 
-
-
 // LAYER VALIDATION
 const validateArchitecture = tl.getInput("ValidateArchitecture", false);
 if (validateArchitecture !== "") {
