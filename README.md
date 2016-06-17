@@ -1,4 +1,4 @@
-[![Build Status](https://jessehouwing.visualstudio.com/_apis/public/build/definitions/a88536a2-a889-45a3-a955-ddf1af8aeba1/35/badge)
+![Build Status](https://jessehouwing.visualstudio.com/_apis/public/build/definitions/a88536a2-a889-45a3-a955-ddf1af8aeba1/35/badge)
 
 # Release Notes
 > **17-6-2016**
@@ -8,7 +8,7 @@
 
 # Description
 
-This Extension contains a slowly growing collection of tasks that help you manipulate and (soon) validate the values of build variables.
+This extension contains a single task that helps you setup your MsBuild commandline parameters for common actions
 
 # Preview Notice
 
