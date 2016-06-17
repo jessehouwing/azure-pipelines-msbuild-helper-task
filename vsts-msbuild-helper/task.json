@@ -251,7 +251,7 @@
       "groupName": "CodeAnalysis",
       "helpMarkdown": "Code Analysis Ruleset",
       "label": "Code Analysis Ruleset",
-      "name": "CustomCodeAnalysisRuleset",
+      "name": "CodeAnalysisCustomRuleset",
       "required": true,
       "type": "filePath",
       "visibleRule": "CodeAnalysisRuleset = Custom"

@@ -102,7 +102,7 @@ if (codeAnalysisRuleset && codeAnalysisRuleset !== "AsConfigured") {
     if (codeAnalysisRuleset !== "Custom") {
         msbuildAdditionalArguments.push(`/p:CodeAnalysisRuleset=${codeAnalysisRuleset}.ruleset`);
     } else {
-        const customCodeAnalysisRuleset = tl.getPathInput("CustomCodeAnalysisRuleset", true);
+        const customCodeAnalysisRuleset = tl.getPathInput("CodeAnalysisCustomRuleset", true);
         msbuildAdditionalArguments.push(`/p:CodeAnalysisRuleset=${customCodeAnalysisRuleset}`);
     }
 }
