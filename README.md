@@ -10,6 +10,8 @@
 
 This extension contains a single task that helps you setup your MsBuild commandline parameters for common actions.
 
+![setup](https://github.com/jessehouwing/vsts-msbuild-helper-task/tree/master/extension/images/Screenshots/setup.png)
+
 Configure the task however you want and then add the following value to the MsBuild or Visual Studio Build task:
 
 > **MsBuild Arguments**: `$(MsBuildAdditionalArguments)`
