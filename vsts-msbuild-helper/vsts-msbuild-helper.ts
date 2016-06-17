@@ -123,4 +123,20 @@ if (validateArchitecture && validateArchitecture !== "AsConfigured") {
     msbuildAdditionalArguments.push(`/p:ValidateArchitecture=${validateArchitecture}`);
 }
 
+// ASPNET
+const mvcBuildViews = tl.getInput("MvcBuildViews", false);
+if (mvcBuildViews && mvcBuildViews !== "AsConfigured") {
+    msbuildAdditionalArguments.push(`/p:MvcBuildViews=${mvcBuildViews}`);
+}
+
+const precompileBeforePublish = tl.getInput("PrecompileBeforePublish", false);
+if (precompileBeforePublish && precompileBeforePublish !== "AsConfigured") {
+    msbuildAdditionalArguments.push(`/p:PrecompileBeforePublish=${precompileBeforePublish}`);
+}
+
+const enableUpdateable = tl.getInput("EnableUpdateable", false);
+if (enableUpdateable && enableUpdateable !== "AsConfigured") {
+    msbuildAdditionalArguments.push(`/p:EnableUpdateable=${enableUpdateable}`);
+}
+
 tl.setVariable(variableName, msbuildAdditionalArguments.join(" "));

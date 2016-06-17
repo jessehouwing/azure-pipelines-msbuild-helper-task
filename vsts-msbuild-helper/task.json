@@ -40,6 +40,11 @@
       "name": "LayerValidation",
       "displayName": "Layer Validation",
       "isExpanded": false
+    },
+    {
+      "name": "ASPNET",
+      "displayName": "ASP.NET",
+      "isExpanded": false
     }
   ],
   "inputs": [
@@ -291,8 +296,50 @@
       },
       "required": false,
       "type": "pickList"
-    }
+    },
 
+    {
+      "defaultValue": "AsConfigured",
+      "groupName": "ASPNET",
+      "helpMarkdown": "Build MVC Views",
+      "label": "Build MVC Views",
+      "name": "MvcBuildViews",
+      "options": {
+        "AsConfigured": "As Configured",
+        "true": "Always",
+        "false": "Never"
+      },
+      "required": false,
+      "type": "pickList"
+    },
+    {
+      "defaultValue": "AsConfigured",
+      "groupName": "ASPNET",
+      "helpMarkdown": "Precompile Before Publish",
+      "label": "Precompile Before Publish",
+      "name": "PrecompileBeforePublish",
+      "options": {
+        "AsConfigured": "As Configured",
+        "true": "Always",
+        "false": "Never"
+      },
+      "required": false,
+      "type": "pickList"
+    },
+    {
+      "defaultValue": "AsConfigured",
+      "groupName": "ASPNET",
+      "helpMarkdown": "Enable Updatable",
+      "label": "Updateable",
+      "name": "EnableUpdateable",
+      "options": {
+        "AsConfigured": "As Configured",
+        "true": "Always",
+        "false": "Never"
+      },
+      "required": false,
+      "type": "pickList"
+    }
   ],
   "instanceNameFormat": "Setup MsBuild Additional Arguments",
   "execution": {
