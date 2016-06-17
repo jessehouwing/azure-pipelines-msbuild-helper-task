@@ -76,6 +76,11 @@ if (treatWarningsAsErrors && treatWarningsAsErrors !== "AsConfigured") {
     msbuildAdditionalArguments.push(`/p:TreatWarningsAsErrors=${treatWarningsAsErrors}`);
 }
 
+const generateDocumentation = tl.getInput("GenerateDocumentation", false);
+if (generateDocumentation && generateDocumentation !== "AsConfigured") {
+    msbuildAdditionalArguments.push(`/p:GenerateDocumentation=${generateDocumentation}`);
+}
+
 const buildInParallel = tl.getInput("MsBuildBuildInParallel", false);
 if (buildInParallel && buildInParallel !== "AsConfigured") {
     msbuildAdditionalArguments.push(`/p:BuildInParallel=${treatWarningsAsErrors}`);

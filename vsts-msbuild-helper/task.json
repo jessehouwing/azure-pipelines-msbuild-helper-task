@@ -189,6 +189,20 @@
       "required": false,
       "type": "pickList"
     },
+    {
+      "defaultValue": "AsConfigured",
+      "groupName": "MsBuild",
+      "helpMarkdown": "Generate Documenation",
+      "label": "Generate Documentation",
+      "name": "GerenateDocumentation",
+      "required": false,
+      "type": "pickList",
+      "options": {
+        "AsConfigured": "AsConfigured",
+        "true": "Always",
+        "false": "Never"
+      }
+    },
 
 
 
