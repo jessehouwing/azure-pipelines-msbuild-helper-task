@@ -55,16 +55,16 @@
   },
   "files": [
     {
-      "path": "vsts-msbuild-helper-task/vsts-msbuild-helper.js"
+      "path": "vsts-msbuild-helper/vsts-msbuild-helper.js"
     },
     {
-      "path": "vsts-msbuild-helper-task/node_modules/vsts-task-lib"
+      "path": "vsts-msbuild-helper/node_modules/vsts-task-lib"
     },
     {
-      "path": "vsts-msbuild-helper-task/task.json"
+      "path": "vsts-msbuild-helper/task.json"
     },
     {
-      "path": "vsts-msbuild-helper-task/icon.png"
+      "path": "vsts-msbuild-helper/icon.png"
     }
   ],
   "contributions": [
