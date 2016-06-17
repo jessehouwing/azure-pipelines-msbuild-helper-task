@@ -315,9 +315,9 @@
     {
       "defaultValue": "AsConfigured",
       "groupName": "ASPNET",
-      "helpMarkdown": "Precompile Before Publish",
-      "label": "Precompile Before Publish",
-      "name": "PrecompileBeforePublish",
+      "helpMarkdown": "Precompile",
+      "label": "Precompile",
+      "name": "Precompile",
       "options": {
         "AsConfigured": "As Configured",
         "true": "Always",

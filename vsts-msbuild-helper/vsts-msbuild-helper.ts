@@ -129,9 +129,12 @@ if (mvcBuildViews && mvcBuildViews !== "AsConfigured") {
     msbuildAdditionalArguments.push(`/p:MvcBuildViews=${mvcBuildViews}`);
 }
 
-const precompileBeforePublish = tl.getInput("PrecompileBeforePublish", false);
-if (precompileBeforePublish && precompileBeforePublish !== "AsConfigured") {
-    msbuildAdditionalArguments.push(`/p:PrecompileBeforePublish=${precompileBeforePublish}`);
+const aspnetPrecompile = tl.getInput("Precompile", false);
+if (aspnetPrecompile && aspnetPrecompile !== "AsConfigured") {
+    if (aspnetPrecompile) {
+        msbuildAdditionalArguments.push(`/t:AspNetPreCompile`);
+    }
+    msbuildAdditionalArguments.push(`/p:AspNetCompileMerge=${aspnetPrecompile}`);
 }
 
 const enableUpdateable = tl.getInput("EnableUpdateable", false);
