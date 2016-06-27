@@ -45,6 +45,11 @@
       "name": "ASPNET",
       "displayName": "ASP.NET",
       "isExpanded": false
+    },
+    {
+      "name": "Deploy",
+      "displayName": "Deploy",
+      "isExpanded": false
     }
   ],
   "inputs": [
@@ -345,6 +350,34 @@
       "helpMarkdown": "Enable Updatable",
       "label": "Updateable",
       "name": "EnableUpdateable",
+      "options": {
+        "AsConfigured": "As Configured",
+        "true": "Always",
+        "false": "Never"
+      },
+      "required": false,
+      "type": "pickList"
+    },
+    {
+      "defaultValue": "AsConfigured",
+      "groupName": "Deploy",
+      "helpMarkdown": "Package on Build",
+      "label": "Package on Build",
+      "name": "PackageOnBuild",
+      "options": {
+        "AsConfigured": "As Configured",
+        "true": "Always",
+        "false": "Never"
+      },
+      "required": false,
+      "type": "pickList"
+    },
+    {
+      "defaultValue": "AsConfigured",
+      "groupName": "Deploy",
+      "helpMarkdown": "Deploy on Build",
+      "label": "Deploy on Build",
+      "name": "DeployOnBuild",
       "options": {
         "AsConfigured": "As Configured",
         "true": "Always",

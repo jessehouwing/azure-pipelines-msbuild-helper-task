@@ -148,4 +148,16 @@ if (enableUpdateable && enableUpdateable !== "AsConfigured") {
     msbuildAdditionalArguments.push(`/p:EnableUpdateable=${enableUpdateable}`);
 }
 
+// DEPLOY
+
+const packageOnBuild = tl.getInput("PackageOnBuild", false);
+if (packageOnBuild && packageOnBuild !== "AsConfigured") {
+    msbuildAdditionalArguments.push(`/p:PackageOnBuild=${packageOnBuild}`);
+}
+
+const deployOnBuild = tl.getInput("DeployOnBuild", false);
+if (deployOnBuild && deployOnBuild !== "AsConfigured") {
+    msbuildAdditionalArguments.push(`/p:DeployOnBuild=${deployOnBuild}`);
+}
+
 tl.setVariable(variableName, msbuildAdditionalArguments.join(" "));
