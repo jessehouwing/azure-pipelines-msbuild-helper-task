@@ -208,8 +208,15 @@
         "false": "Never"
       }
     },
-
-
+    {
+      "defaultValue": "",
+      "groupName": "MsBuild",
+      "helpMarkdown": "Custom After Microsoft Common Targets",
+      "label": "Custom After Microsoft Common Targets",
+      "name": "CustomAfterMicrosoftCommonTargets",
+      "required": false,
+      "type": "filePath"
+    },
 
     {
       "defaultValue": "AsConfigured",

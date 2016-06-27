@@ -91,6 +91,14 @@ if (maxCpuCount) {
     msbuildAdditionalArguments.push(`/m:${maxCpuCount}`);
 }
 
+if (tl.filePathSupplied("CustomAfterMicrosoftCommonTargets")) {
+    const customAfterMicrosoftCommonTargets = tl.getPathInput("CustomAfterMicrosoftCommonTargets", false);
+    if (customAfterMicrosoftCommonTargets) {
+        msbuildAdditionalArguments.push(`/p:CustomAfterMicrosoftCommonTargets=${customAfterMicrosoftCommonTargets}`);
+    }
+}
+
+
 // CODE ANALYSIS
 const runCodeAnalysis = tl.getInput("RunCodeAnalysis", false);
 if (runCodeAnalysis && runCodeAnalysis !== "AsConfigured") {
