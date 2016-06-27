@@ -81,6 +81,12 @@ if (generateDocumentation && generateDocumentation !== "AsConfigured") {
     msbuildAdditionalArguments.push(`/p:GenerateDocumentation=${generateDocumentation}`);
 }
 
+const skipInvalidConfigurations = tl.getInput("SkipInvalidConfigurations", false);
+if (skipInvalidConfigurations && skipInvalidConfigurations !== "AsConfigured") {
+    msbuildAdditionalArguments.push(`/p:skipInvalidConfigurations=${skipInvalidConfigurations}`);
+}
+
+
 const buildInParallel = tl.getInput("MsBuildBuildInParallel", false);
 if (buildInParallel && buildInParallel !== "AsConfigured") {
     msbuildAdditionalArguments.push(`/p:BuildInParallel=${buildInParallel}`);

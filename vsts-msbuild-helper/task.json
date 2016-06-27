@@ -156,7 +156,20 @@
       "type": "string",
       "visibleRule": "MsBuildOutputPath=Custom"
     },
-
+    {
+      "defaultValue": "",
+      "groupName": "MsBuildBasic",
+      "helpMarkdown": "Skip Invalid Configurations",
+      "label": "Skip Invalid Configurations",
+      "name": "SkipInvalidConfigurations",
+      "required": true,
+      "options": {
+        "AsConfigured": "As Configured",
+        "true": "Always",
+        "false": "Never"
+      },
+      "type": "pickList"
+    },
     {
       "defaultValue": "AsConfigured",
       "groupName": "MsBuild",
