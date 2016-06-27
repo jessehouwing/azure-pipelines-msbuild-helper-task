@@ -18,12 +18,6 @@ if (tl.getBoolInput("MsBuildTargetClean")) {
 if (tl.getBoolInput("MsBuildTargetBuild")) {
     msbuildTargets.push("Build");
 }
-if (tl.getBoolInput("MsBuildTargetPackage")) {
-    msbuildTargets.push("Package");
-}
-if (tl.getBoolInput("MsBuildTargetDeploy")) {
-    msbuildTargets.push("Deploy");
-}
 const customMsBuildTargets: string[] = tl.getDelimitedInput("MsBuildTargetCustom", ";", false);
 msbuildTargets.push(...customMsBuildTargets);
 
