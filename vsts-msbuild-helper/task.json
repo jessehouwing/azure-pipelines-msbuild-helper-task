@@ -361,20 +361,6 @@
     {
       "defaultValue": "AsConfigured",
       "groupName": "Deploy",
-      "helpMarkdown": "Package on Build",
-      "label": "Package on Build",
-      "name": "PackageOnBuild",
-      "options": {
-        "AsConfigured": "As Configured",
-        "true": "Always",
-        "false": "Never"
-      },
-      "required": false,
-      "type": "pickList"
-    },
-    {
-      "defaultValue": "AsConfigured",
-      "groupName": "Deploy",
       "helpMarkdown": "Deploy on Build",
       "label": "Deploy on Build",
       "name": "DeployOnBuild",

@@ -150,11 +150,6 @@ if (enableUpdateable && enableUpdateable !== "AsConfigured") {
 
 // DEPLOY
 
-const packageOnBuild = tl.getInput("PackageOnBuild", false);
-if (packageOnBuild && packageOnBuild !== "AsConfigured") {
-    msbuildAdditionalArguments.push(`/p:PackageOnBuild=${packageOnBuild}`);
-}
-
 const deployOnBuild = tl.getInput("DeployOnBuild", false);
 if (deployOnBuild && deployOnBuild !== "AsConfigured") {
     msbuildAdditionalArguments.push(`/p:DeployOnBuild=${deployOnBuild}`);
