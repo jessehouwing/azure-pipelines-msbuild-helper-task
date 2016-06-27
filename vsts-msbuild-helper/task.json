@@ -385,6 +385,32 @@
       },
       "required": false,
       "type": "pickList"
+    },
+
+    {
+      "defaultValue": "AsConfigured",
+      "groupName": "Deploy",
+      "helpMarkdown": "Package Location",
+      "label": "Package Location",
+      "name": "PackageLocation",
+      "options": {
+        "AsConfigured": "As Configured",
+        "Custom": "Custom",
+        "BinariesDirectory": "Binaries Directory",
+        "StagingDirectory": "Staging Directory"
+      },
+      "required": false,
+      "type": "pickList"
+    },
+    {
+      "defaultValue": "",
+      "groupName": "Deploy",
+      "helpMarkdown": "Package Location",
+      "label": "Custom Package Location",
+      "name": "CustomPackageLocation",
+      "required": true,
+      "type": "string",
+      "visibleRule": "PackageLocation=Custom"
     }
   ],
   "instanceNameFormat": "Setup MsBuild Additional Arguments",

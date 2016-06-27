@@ -160,4 +160,24 @@ if (deployOnBuild && deployOnBuild !== "AsConfigured") {
     msbuildAdditionalArguments.push(`/p:DeployOnBuild=${deployOnBuild}`);
 }
 
+const packageLocation = tl.getInput("PackageLocation", false);
+if (packageLocation && packageLocation !== "AsConfigured") {
+    let path: string;
+    switch (packageLocation) {
+        case "BinariesDirectory":
+            path = tl.getVariable("Build.BinariesDirectory");
+            break;
+
+        case "StagingDirectory":
+            path = tl.getVariable("Build.StagingDirectory");
+            break;
+
+        case "Custom":
+            path = tl.getPathInput("CustomPackageLocation", true);
+            break;
+    }
+
+    msbuildAdditionalArguments.push(`/p:PackageLocation=${path}`);
+}
+
 tl.setVariable(variableName, msbuildAdditionalArguments.join(" "));
