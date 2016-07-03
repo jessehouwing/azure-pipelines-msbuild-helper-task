@@ -1,4 +1,4 @@
-[![Donate](https://raw.githubusercontent.com/jessehouwing/vsts-msbuild-helper-task/tree/master/extension/images/donate.png)](https://www.paypal.me/JesseHouwing/5) ![Build Status](https://jessehouwing.visualstudio.com/_apis/public/build/definitions/a88536a2-a889-45a3-a955-ddf1af8aeba1/36/badge)
+[![Donate](https://raw.githubusercontent.com/jessehouwing/vsts-msbuild-helper-task/master/extension/images/donate.png)](https://www.paypal.me/JesseHouwing/5) ![Build Status](https://jessehouwing.visualstudio.com/_apis/public/build/definitions/a88536a2-a889-45a3-a955-ddf1af8aeba1/36/badge)
 
 # Upcoming features
 
