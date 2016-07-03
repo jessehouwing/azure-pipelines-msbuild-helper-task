@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25401.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Extension", "Extension", "{BC296AF2-F84F-4227-B0E7-93CBF12940F8}"
 	ProjectSection(SolutionItems) = preProject
@@ -13,6 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Extension", "Extension", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{60191CF5-016B-4E2D-B762-228F0D128D8C}"
 	ProjectSection(SolutionItems) = preProject
+		extension\images\donate.png = extension\images\donate.png
 		extension\images\extension-icon.png = extension\images\extension-icon.png
 		extension\images\icons-small.psd = extension\images\icons-small.psd
 		extension\images\icons.psd = extension\images\icons.psd
