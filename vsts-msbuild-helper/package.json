@@ -11,7 +11,8 @@
   },
   "scripts": {
     "initdev:npm": "npm install",
-    "initdev": "npm run initdev:npm"
+    "initdev": "npm run initdev:npm",
+    "build": "tsc && npm dedupe && npm prune --production"
   },
   "devDependencies": {
     "@types/node": "^6.0.56",
