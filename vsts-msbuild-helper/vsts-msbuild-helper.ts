@@ -1,5 +1,4 @@
-﻿///<reference path="./typings/main.d.ts" />
-import tl = require("vsts-task-lib/task");
+﻿import tl = require("vsts-task-lib/task");
 
 let msbuildAdditionalArguments: string[] = new Array<string>();
 const variableName = tl.getInput("variableName", true);

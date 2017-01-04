@@ -5,8 +5,11 @@
  - Support for MsDeploy/WebDeploy
 
 # Release Notes
-> **17-6-2016**
 
+> **4-1-2017**
+> - Updated: Latest vsts-task-lib & typescript version
+
+> **17-6-2016**
 > - First release
 
 

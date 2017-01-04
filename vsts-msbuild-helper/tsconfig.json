@@ -1,12 +1,12 @@
 ﻿{
   "compilerOptions": {
     "module": "commonjs",
-    "target": "es5",
+    "target": "es6",
     "outDir": ".",
-    "rootDir": "."
+    "rootDir": ".",
+    "sourceMap": true
   },
   "exclude": [
-    "typings",
-    "node_modules/typings"
+    "node_modules"
   ]
 }
