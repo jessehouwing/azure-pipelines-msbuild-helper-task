@@ -69,7 +69,7 @@
       "path": "vsts-msbuild-helper/vsts-msbuild-helper.js"
     },
     {
-      "path": "vsts-msbuild-helper/node_modules/vsts-task-lib"
+      "path": "vsts-msbuild-helper/node_modules"
     },
     {
       "path": "vsts-msbuild-helper/task.json"
