@@ -29,13 +29,11 @@ if (outputPath && outputPath !== "AsConfigured") {
     let path: string;
     switch (outputPath) {
         case "BinariesDirectory":
-            path = tl.getVariable("Build.BinariesDirectory");
+            path = `"${tl.getVariable("Build.BinariesDirectory")}"`;
             break;
-
         case "StagingDirectory":
-            path = tl.getVariable("Build.StagingDirectory");
+            path = `"${tl.getVariable("Build.StagingDirectory")}"`;
             break;
-
         case "Custom":
             path = tl.getInput("MsBuildCustomOutputPath", true);
             break;
@@ -49,13 +47,11 @@ if (baseOutputPath && baseOutputPath !== "AsConfigured") {
     let path: string;
     switch (baseOutputPath) {
         case "BinariesDirectory":
-            path = tl.getVariable("Build.BinariesDirectory");
+            path = `"${tl.getVariable("Build.BinariesDirectory")}"`;
             break;
-
         case "StagingDirectory":
-            path = tl.getVariable("Build.StagingDirectory");
+            path = `"${tl.getVariable("Build.StagingDirectory")}"`;
             break;
-
         case "Custom":
             path = tl.getPathInput("MsBuildCustomBaseOutputPath", true);
             break;
@@ -79,7 +75,6 @@ if (skipInvalidConfigurations && skipInvalidConfigurations !== "AsConfigured") {
     msbuildAdditionalArguments.push(`/p:skipInvalidConfigurations=${skipInvalidConfigurations}`);
 }
 
-
 const buildInParallel = tl.getInput("MsBuildBuildInParallel", false);
 if (buildInParallel && buildInParallel !== "AsConfigured") {
     msbuildAdditionalArguments.push(`/p:BuildInParallel=${buildInParallel}`);
@@ -96,7 +91,6 @@ if (tl.filePathSupplied("CustomAfterMicrosoftCommonTargets")) {
         msbuildAdditionalArguments.push(`/p:CustomAfterMicrosoftCommonTargets=${customAfterMicrosoftCommonTargets}`);
     }
 }
-
 
 // CODE ANALYSIS
 const runCodeAnalysis = tl.getInput("RunCodeAnalysis", false);
@@ -161,11 +155,11 @@ if (packageLocation && packageLocation !== "AsConfigured") {
     let path: string;
     switch (packageLocation) {
         case "BinariesDirectory":
-            path = tl.getVariable("Build.BinariesDirectory");
+            path = `"${tl.getVariable("Build.BinariesDirectory")}"`;
             break;
 
         case "StagingDirectory":
-            path = tl.getVariable("Build.StagingDirectory");
+            path = `"${tl.getVariable("Build.StagingDirectory")}"`;
             break;
 
         case "Custom":
