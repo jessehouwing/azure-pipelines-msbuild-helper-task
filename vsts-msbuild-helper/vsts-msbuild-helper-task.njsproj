@@ -5,6 +5,8 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <Name>vsts-variable-transform</Name>
     <RootNamespace>NodejsConsoleApp1</RootNamespace>
+    <ToolsVersionPromptShown>0.0</ToolsVersionPromptShown>
+    <TypeScriptToolsVersion>2.6</TypeScriptToolsVersion>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -38,7 +40,6 @@
     <Content Include="task.json" />
     <Content Include="tsconfig.json" />
     <Content Include="tslint.json" />
-    <Content Include="typings.json" />
     <TypeScriptCompile Include="vsts-msbuild-helper.ts" />
     <Content Include="package.json" />
   </ItemGroup>

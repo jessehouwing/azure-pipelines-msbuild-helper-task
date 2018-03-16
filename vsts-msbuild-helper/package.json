@@ -7,17 +7,18 @@
     "email": "jesse.houwing@gmail.com"
   },
   "dependencies": {
-    "vsts-task-lib": "^2.0.0-preview"
+    "vsts-task-lib": "^2.3.0"
   },
   "scripts": {
     "initdev:npm": "npm install",
     "initdev": "npm run initdev:npm",
-    "build": "tsc && npm dedupe && npm prune --production"
+    "build": "tsc && tslint --project . && npm dedupe && npm prune --production"
   },
   "devDependencies": {
     "@types/node": "^6.0.56",
     "@types/q": "0.0.32",
+    "tslint": "^5.9.1",
     "types": "^0.1.1",
-    "typescript": "^2.1.4"
+    "typescript": "^2.7.2"
   }
 }
