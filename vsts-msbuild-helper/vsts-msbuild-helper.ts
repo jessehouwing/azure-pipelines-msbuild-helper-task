@@ -1,4 +1,4 @@
-﻿import tl = require("vsts-task-lib/task");
+﻿import * as tl from "azure-pipelines-task-lib/task";
 
 let msbuildAdditionalArguments: string[] = new Array<string>();
 const variableName = tl.getInput("variableName", true);

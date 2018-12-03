@@ -14,7 +14,7 @@
   ],
   "description": "Task to help you set those pesky MsBuild Properties.",
   "categories": [
-    "Build and release"
+    "Azure Pipelines"
   ],
   "tags": [
     "Extension",
