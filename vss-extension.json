@@ -42,20 +42,29 @@
       "path": "readme.md"
     },
     "license": {
-      "path": "license.txt"
+      "path": "LICENSE.md"
+    },
+    "privacy": {
+      "path": "PRIVACY.md"
     }
   },
   "links": {
     "getstarted": {
-      "uri": "https://github.com/jessehouwing/vsts-msbuild-helper-task/wiki"
+      "uri": "https://github.com/jessehouwing/azure-pipelines-msbuild-helper-task/wiki"
     },
     "support": {
-      "uri": "https://github.com/jessehouwing/vsts-msbuild-helper-task/issues"
+      "uri": "https://github.com/jessehouwing/azure-pipelines-msbuild-helper-task/issues"
+    },
+    "license": {
+      "uri": "https://github.com/jessehouwing/azure-pipelines-msbuild-helper-task/LICENSE.md"
+    },
+    "privacypolicy": {
+      "uri": "https://github.com/jessehouwing/azure-pipelines-msbuild-helper-task/blob/master/PRIVACY.md"
     }
   },
   "repository": {
     "type": "git",
-    "uri": "https://github.com/jessehouwing/vsts-msbuild-helper-task"
+    "uri": "https://github.com/jessehouwing/azure-pipelines-msbuild-helper-task"
   },
   "branding": {
     "color": "rgb(36, 43, 50)",
