@@ -44,13 +44,6 @@ stages:
     
     - script: |
         npm run build
-    - task: SnykSecurityScan@0
-      inputs:
-        testType: 'app'
-        monitorOnBuild: false
-        failOnIssues: true
-        additionalArguments: '--all-projects --detection-depth=6'
-        serviceConnectionEndpoint: 'snyk-jessehouwing'
 
     - task: TfxInstaller@4
       displayName: 'Use Node CLI for Azure DevOps'
