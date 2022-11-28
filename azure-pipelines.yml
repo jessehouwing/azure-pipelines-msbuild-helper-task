@@ -17,6 +17,8 @@ variables:
     value: '0.x'
   - name: 'nodeVersion'
     value: '10.x'
+  - name: 'publisher'
+    value: 'Marketplace'
 
 stages:
 - stage: 'Build'
@@ -140,7 +142,7 @@ stages:
             name: 'publishDev'
             inputs:
               connectTo: 'VsTeam'
-              connectedServiceName: 'Jesse Houwing'
+              connectedServiceName: $(publisher)
               fileType: 'vsix'
               vsixFile: '$(Pipeline.Workspace)/vsix/$(extensionId).vsix'
               publisherId: 'jessehouwing'
@@ -154,7 +156,7 @@ stages:
           - task: IsAzureDevOpsExtensionValid@4
             inputs:
               connectTo: 'VsTeam'
-              connectedServiceName: 'Jesse Houwing'
+              connectedServiceName: $(publisher)
               method: 'vsix'
               vsixFile: '$(publishDev.Extension.OutputPath)'
 
@@ -194,7 +196,7 @@ stages:
             name: 'publishProd'
             inputs:
               connectTo: 'VsTeam'
-              connectedServiceName: 'Jesse Houwing'
+              connectedServiceName: $(publisher)
               fileType: 'vsix'
               vsixFile: '$(Pipeline.Workspace)/vsix/$(extensionId).vsix'
               publisherId: 'jessehouwing'
@@ -206,7 +208,7 @@ stages:
           - task: IsAzureDevOpsExtensionValid@4
             inputs:
               connectTo: 'VsTeam'
-              connectedServiceName: 'Jesse Houwing'
+              connectedServiceName: $(publisher)
               method: 'vsix'
               vsixFile: '$(publishProd.Extension.OutputPath)'
 
