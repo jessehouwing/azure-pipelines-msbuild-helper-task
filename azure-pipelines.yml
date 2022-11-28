@@ -221,6 +221,7 @@ stages:
             condition: succeededOrFailed()
 
           - task: GitHubRelease@1
+            condition: false
             inputs:
               gitHubConnection: 'GitHub - jessehouwing'
               repositoryName: '$(Build.Repository.Name)'
