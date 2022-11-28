@@ -39,6 +39,7 @@ stages:
 
     - script: |
         npm install
+        
     - script: |
         npm run initdev
     
