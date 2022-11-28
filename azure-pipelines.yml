@@ -41,12 +41,15 @@ stages:
 
     - script: |
         npm install
+      workingDirectory: "./vsts-msbuild-helper"
         
     - script: |
         npm run initdev
+      workingDirectory: "./vsts-msbuild-helper"
     
     - script: |
         npm run build
+      workingDirectory: "./vsts-msbuild-helper"
 
     - task: TfxInstaller@4
       displayName: 'Use Node CLI for Azure DevOps'
