@@ -1,4 +1,4 @@
-name: '0.2$(rev:.r)'
+name: '1.0$(rev:.r)'
 
 trigger:
 - main
@@ -16,7 +16,7 @@ variables:
   - name: 'tfxVersion'
     value: '0.x'
   - name: 'nodeVersion'
-    value: '10.x'
+    value: '16.x'
   - name: 'publisher'
     value: 'Marketplace'
 
@@ -41,15 +41,27 @@ stages:
 
     - script: |
         npm install
-      workingDirectory: "./vsts-msbuild-helper"
+      workingDirectory: "./vsts-msbuild-helper/v0"
         
     - script: |
         npm run initdev
-      workingDirectory: "./vsts-msbuild-helper"
+      workingDirectory: "./vsts-msbuild-helper/v0"
     
     - script: |
         npm run build
-      workingDirectory: "./vsts-msbuild-helper"
+      workingDirectory: "./vsts-msbuild-helper/v0"
+
+    - script: |
+        npm install
+      workingDirectory: "./vsts-msbuild-helper/v1"
+        
+    - script: |
+        npm run initdev
+      workingDirectory: "./vsts-msbuild-helper/v1"
+    
+    - script: |
+        npm run build
+      workingDirectory: "./vsts-msbuild-helper/v1"
 
     - task: TfxInstaller@4
       displayName: 'Use Node CLI for Azure DevOps'

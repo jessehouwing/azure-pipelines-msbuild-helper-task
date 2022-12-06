@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "jessehouwing-vsts-msbuild-helper-task",
   "name": "MsBuild Helper Tasks",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "publisher": "jessehouwing",
   "targets": [
     {

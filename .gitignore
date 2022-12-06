@@ -241,6 +241,5 @@ _Pvt_Extensions
 # FAKE - F# Make
 .fake/
 /dist/-msbuild-helper-task
-/vsts-msbuild-helper/typings
-/vsts-msbuild-helper/vsts-msbuild-helper.js.map
-/vsts-msbuild-helper/vsts-msbuild-helper.js
+/vsts-msbuild-helper/v*/*.js.map
+/vsts-msbuild-helper/v*/*.js

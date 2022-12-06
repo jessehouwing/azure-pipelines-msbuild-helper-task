@@ -1,0 +1,23 @@
+{
+  "name": "vsts-msbuild-helper-task",
+  "version": "1.0.0",
+  "description": "MsBuild Helper",
+  "author": {
+    "name": "Jesse Houwing",
+    "email": "jesse.houwing@gmail.com"
+  },
+  "dependencies": {
+    "azure-pipelines-task-lib": "^4.1.0"
+  },
+  "scripts": {
+    "initdev:npm": "npm install",
+    "initdev": "npm run initdev:npm",
+    "build": "tsc && tslint --project . && npm dedupe && npm prune --production"
+  },
+  "devDependencies": {
+    "@types/node": "^16.18.6",
+    "tslint": "^5.20.1",
+    "typescript": "^3.9.10",
+    "typestrict": "^1.0.2"
+  }
+}

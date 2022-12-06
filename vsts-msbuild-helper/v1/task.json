@@ -7,14 +7,14 @@
   "category": "Build",
   "author": "Jesse Houwing",
   "version": {
-    "Major": 0,
+    "Major": 1,
     "Minor": 0,
     "Patch": 0
   },
   "visibility": [
     "Build"
   ],
-  "minimumAgentVersion": "1.83.0",
+  "minimumAgentVersion": "2.144.0",
   "groups": [
     {
       "name": "MsBuildTargets",
@@ -390,11 +390,11 @@
   ],
   "instanceNameFormat": "Setup MsBuild Additional Arguments",
   "execution": {
-    "Node": {
+    "Node10": {
       "target": "vsts-msbuild-helper.js",
       "argumentFormat": ""
     },
-    "Node10": {
+    "Node16": {
       "target": "vsts-msbuild-helper.js",
       "argumentFormat": ""
     }
