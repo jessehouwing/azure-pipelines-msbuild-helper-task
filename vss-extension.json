@@ -75,16 +75,28 @@
   },
   "files": [
     {
-      "path": "vsts-msbuild-helper/vsts-msbuild-helper.js"
+      "path": "vsts-msbuild-helper/v0/vsts-msbuild-helper.js"
     },
     {
-      "path": "vsts-msbuild-helper/node_modules"
+      "path": "vsts-msbuild-helper/v0/node_modules"
     },
     {
-      "path": "vsts-msbuild-helper/task.json"
+      "path": "vsts-msbuild-helper/v0/task.json"
     },
     {
-      "path": "vsts-msbuild-helper/icon.png"
+      "path": "vsts-msbuild-helper/v0/icon.png"
+    },
+    {
+      "path": "vsts-msbuild-helper/v1/vsts-msbuild-helper.js"
+    },
+    {
+      "path": "vsts-msbuild-helper/v1/node_modules"
+    },
+    {
+      "path": "vsts-msbuild-helper/v1/task.json"
+    },
+    {
+      "path": "vsts-msbuild-helper/v1/icon.png"
     }
   ],
   "contributions": [
