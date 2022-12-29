@@ -118,13 +118,14 @@ stages:
             name: 'publishDev'
             inputs:
               connectTo: 'VsTeam'
-              connectedServiceName: $(publisher)
+              connectedServiceName: '$(publisher)'
               fileType: 'vsix'
               vsixFile: '$(Pipeline.Workspace)/vsix/$(extensionId).vsix'
               publisherId: 'jessehouwing'
-              extensionId: $(extensionId)
+              extensionId: '$(extensionId)'
               extensionTag: '-dev'
               updateTasksVersion: false
+              updateTasksId: true
               extensionVisibility: 'privatepreview'
               shareWith: 'jessehouwing-dev'
               noWaitValidation: true
