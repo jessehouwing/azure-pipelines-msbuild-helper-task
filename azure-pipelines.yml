@@ -200,7 +200,7 @@ stages:
           - task: GitHubRelease@1
             condition: false
             inputs:
-              gitHubConnection: 'jessehouwing'
+              gitHubConnection: 'GitHub - jessehouwing'
               repositoryName: '$(Build.Repository.Name)'
               action: 'create'
               target: '$(Build.SourceVersion)'
