@@ -84,7 +84,7 @@ stages:
         updateTasksVersionType: patch
         extensionVisibility: private
 
-    - task: PublishPipelineArtifact@1
+    - task: PublishPipelineArtifact@1.199.0
       displayName: 'Publish vsix'
       inputs:
         publishLocation: pipeline
