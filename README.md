@@ -1,9 +1,3 @@
-[![Donate](https://raw.githubusercontent.com/jessehouwing/vsts-msbuild-helper-task/main/extension/images/donate.png)](https://github.com/sponsors/jessehouwing) ![Build Status](https://jessehouwing.visualstudio.com/_apis/public/build/definitions/a88536a2-a889-45a3-a955-ddf1af8aeba1/36/badge)
-
-# Upcoming features
-
- - Support for MsDeploy/WebDeploy
-
 # Release Notes
 
 > **4-1-2017**
