@@ -63,7 +63,7 @@ stages:
         npm run build
       workingDirectory: "./vsts-msbuild-helper/v1"
 
-    - task: TfxInstaller@4
+    - task: TfxInstaller@4.0.161
       displayName: 'Use Node CLI for Azure DevOps'
       inputs:
         version: $(tfxVersion)
