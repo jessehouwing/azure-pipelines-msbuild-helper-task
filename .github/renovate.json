@@ -19,4 +19,5 @@
       "matchDatasources": ["azure-pipelines-tasks"],
       "extractVersion": "^(?<version>\\d+)"
     }
+  ]
 }
