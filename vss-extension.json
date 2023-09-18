@@ -62,6 +62,13 @@
       "uri": "https://github.com/jessehouwing/azure-pipelines-msbuild-helper-task/blob/master/PRIVACY.md"
     }
   },
+  "badges": [
+    {
+      "href": "https://github.com/sponsors/jessehouwing",
+      "uri": "https://img.shields.io/github/sponsors/jessehouwing",
+      "description": "GitHub Sponsors"
+    }
+  ],
   "repository": {
     "type": "git",
     "uri": "https://github.com/jessehouwing/azure-pipelines-msbuild-helper-task"
