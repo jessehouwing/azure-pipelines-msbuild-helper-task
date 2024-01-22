@@ -15,7 +15,7 @@
     "build": "tsc && tslint --project . && npm dedupe && npm prune --production"
   },
   "devDependencies": {
-    "@types/node": "^16.18.72",
+    "@types/node": "^16.18.74",
     "tslint": "^6.1.3",
     "typescript": "^5.3.3",
     "typestrict": "^1.0.2"
