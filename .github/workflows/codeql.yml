@@ -85,7 +85,7 @@ jobs:
     # ℹ️ Command-line programs to run using the OS shell.
     # 📚 See https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun
     - name: Run manual build steps
-      if: matrix.langauge == 'javascript-typescript'
+      if: matrix.language == 'javascript-typescript'
       shell: bash
       run: |
             pushd "./vsts-msbuild-helper/v0"
