@@ -1,7 +1,6 @@
 name: "CodeQL config for Azure Pipelines MsBuild Helper Task"
 
 paths:
-- vsts-msbuild-helper/v0
-- vsts-msbuild-helper/v1
+- vsts-msbuild-helper
 paths-ignore:
 - '**/node_modules'
