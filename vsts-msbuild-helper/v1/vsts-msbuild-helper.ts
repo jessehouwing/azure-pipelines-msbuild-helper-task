@@ -1,6 +1,6 @@
 ﻿import * as tl from "azure-pipelines-task-lib/task";
 
-let msbuildAdditionalArguments: string[] = new Array<string>();
+const msbuildAdditionalArguments: string[] = new Array<string>();
 const variableName = tl.getInput("variableName", true);
 
 // ensure we don't override already set values
@@ -10,7 +10,7 @@ if (existingArguments) {
 }
 
 // MSBUILD
-let msbuildTargets: string[] = new Array<string>();
+const msbuildTargets: string[] = new Array<string>();
 if (tl.getBoolInput("MsBuildTargetClean")) {
     msbuildTargets.push("Clean");
 }

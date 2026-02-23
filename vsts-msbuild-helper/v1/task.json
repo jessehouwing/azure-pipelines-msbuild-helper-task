@@ -397,6 +397,10 @@
     "Node20_1": {
       "target": "vsts-msbuild-helper.js",
       "argumentFormat": ""
+    },
+    "Node24": {
+      "target": "vsts-msbuild-helper.js",
+      "argumentFormat": ""
     }
   }
 }

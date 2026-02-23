@@ -1,0 +1,42 @@
+{
+  "name": "jessehouwing-vsts-msbuild-helper-task",
+  "description": "Azure Pipelines MsBuild Helper",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jessehouwing/azure-pipelines-msbuild-helper-task"
+  },
+  "keywords": [
+    "vsts",
+    "tfs",
+    "azure-devops",
+    "azure-pipelines"
+  ],
+  "scripts": {
+    "initdev": "npm run initdev:npm",
+    "initdev:npm": "npm run initdev:npm:base & npm run initdev:npm:tasks",
+    "initdev:npm:base": "npm install --no-progress --no-update-notifier",
+    "initdev:npm:tasks": "glob-exec --parallel --foreach \"vsts-msbuild-helper/*/tsconfig.json\" -- \"cd {{file.dir}} && npm install --no-update-notifier --no-progress\"",
+    "compile:tasks": "glob-exec --foreach \"vsts-msbuild-helper/*/tsconfig.json\" -- \"cd {{file.dir}} && npx tsc\"",
+    "postcompile:tasks": "npm run lint:tasks",
+    "cleanup:tasks": "glob-exec --parallel --foreach \"vsts-msbuild-helper/*/tsconfig.json\" -- \"cd {{file.dir}} && npm dedupe && npm prune --production\"",
+    "lint:tasks": "eslint \"vsts-msbuild-helper/**/*.ts\"",
+    "package:tasks": "tfx extension create --root . --output-path dist --manifest-globs vss-extension.json",
+    "build": "npm run build:tasks",
+    "build:clean": "npm run clean && npm run initdev && npm run build",
+    "build:tasks": "npm run compile:tasks && npm run cleanup:tasks",
+    "package": "npm run build:clean && npm run package:tasks",
+    "clean": "git clean -fdX"
+  },
+  "author": "Jesse Houwing",
+  "license": "MIT",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/core-js": "^2.5.8",
+    "eslint": "^10.0.1",
+    "glob-exec": "^0.1.1",
+    "globals": "^17.3.0",
+    "tfx-cli": "^0.23.1",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.56.0"
+  }
+}

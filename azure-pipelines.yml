@@ -8,24 +8,23 @@ pr:
 - main
 
 pool:
-  vmImage: 'windows-2022'
+  vmImage: 'windows-latest'
 
 variables:
-  - name: 'extensionId'
-    value: 'jessehouwing-vsts-msbuild-helper-task'
-  - name: 'tfxVersion'
-    value: '0.x'
-  - name: 'nodeVersion'
-    value: '16.x'
-  - name: 'publisher'
-    value: 'Jesse Houwing'
-
+- name: 'extensionId'
+  value: 'jessehouwing-vsts-msbuild-helper-task'
+- name: 'tfxVersion'
+  value: '0.x'
+- name: 'nodeVersion'
+  value: '20.x'
+- name: 'publisher'
+  value: 'Jesse Houwing'
 
 stages:
 - stage: 'Build'
   displayName: 'Build'
   jobs:
-  - job: 
+  - job:
     displayName: 'Build'
     steps:
     - task: NodeTool@0.213.0
@@ -41,28 +40,12 @@ stages:
         addBOM: false
 
     - script: |
-        npm install
-      workingDirectory: "./vsts-msbuild-helper/v0"
-        
-    - script: |
         npm run initdev
-      workingDirectory: "./vsts-msbuild-helper/v0"
-    
-    - script: |
-        npm run build
-      workingDirectory: "./vsts-msbuild-helper/v0"
+      displayName: 'Install dependencies'
 
     - script: |
-        npm install
-      workingDirectory: "./vsts-msbuild-helper/v1"
-        
-    - script: |
-        npm run initdev
-      workingDirectory: "./vsts-msbuild-helper/v1"
-    
-    - script: |
         npm run build
-      workingDirectory: "./vsts-msbuild-helper/v1"
+      displayName: 'Build tasks'
 
     - task: TfxInstaller@5
       displayName: 'Use Node CLI for Azure DevOps'
@@ -98,11 +81,11 @@ stages:
   condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
   dependsOn: 'Build'
   jobs:
-    - deployment: 
-      environment: Publisher JesseHouwing (privately)
-      strategy: 
-        runOnce:
-         deploy:
+  - deployment:
+    environment: Publisher JesseHouwing (privately)
+    strategy:
+      runOnce:
+        deploy:
           steps:
           - task: NodeTool@0
             inputs:
@@ -130,14 +113,13 @@ stages:
               extensionVisibility: 'privatepreview'
               shareWith: 'jessehouwing-dev'
               noWaitValidation: true
-        
+
           - task: IsAzureDevOpsExtensionValid@5
             inputs:
               connectTo: 'AzureRM'
               connectedServiceNameAzureRM: azure-devops-marketplace
               method: 'vsix'
               vsixFile: '$(publishDev.Extension.OutputPath)'
-
 
           - task: PublishPipelineArtifact@1
             displayName: 'Publish vsix'
@@ -152,18 +134,18 @@ stages:
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
   dependsOn: 'PublishDev'
   jobs:
-    - deployment: 
-      environment: Publisher JesseHouwing (publicly)
-      strategy: 
-        runOnce:
-         deploy:
+  - deployment:
+    environment: Publisher JesseHouwing (publicly)
+    strategy:
+      runOnce:
+        deploy:
           steps:
 
           - task: NodeTool@0
             inputs:
               versionSpec: $(nodeVersion)
             displayName: 'Install Node.js'
-            
+
           - task: TfxInstaller@5
             displayName: 'Use Node CLI for Azure DevOps'
             inputs:
@@ -182,7 +164,7 @@ stages:
               updateTasksVersion: false
               extensionVisibility: 'public'
               noWaitValidation: true
-          
+
           - task: IsAzureDevOpsExtensionValid@5
             inputs:
               connectTo: 'AzureRM'
