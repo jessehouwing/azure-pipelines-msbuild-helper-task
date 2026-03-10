@@ -13,8 +13,6 @@ pool:
 variables:
 - name: 'extensionId'
   value: 'jessehouwing-vsts-msbuild-helper-task'
-- name: 'tfxVersion'
-  value: '0.x'
 - name: 'nodeVersion'
   value: '20.x'
 - name: 'publisher'
@@ -49,9 +47,6 @@ stages:
 
     - task: TfxInstaller@5
       displayName: 'Use Node CLI for Azure DevOps'
-      inputs:
-        version: $(tfxVersion)
-        checkLatest: true
 
     - task: PackageAzureDevOpsExtension@5
       displayName: 'Package Extension: $(Build.SourcesDirectory)'
@@ -94,9 +89,6 @@ stages:
 
           - task: TfxInstaller@5
             displayName: 'Use Node CLI for Azure DevOps'
-            inputs:
-              version: $(tfxVersion)
-              checkLatest: true
 
           - task: PublishAzureDevOpsExtension@5
             name: 'publishDev'
@@ -148,9 +140,6 @@ stages:
 
           - task: TfxInstaller@5
             displayName: 'Use Node CLI for Azure DevOps'
-            inputs:
-              version: $(tfxVersion)
-              checkLatest: true
 
           - task: PublishAzureDevOpsExtension@5
             name: 'publishProd'
