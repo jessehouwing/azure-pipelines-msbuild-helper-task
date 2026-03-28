@@ -82,10 +82,7 @@
   },
   "files": [
     {
-      "path": "vsts-msbuild-helper/v0/vsts-msbuild-helper.js"
-    },
-    {
-      "path": "vsts-msbuild-helper/v0/node_modules"
+      "path": "vsts-msbuild-helper/v0/dist"
     },
     {
       "path": "vsts-msbuild-helper/v0/task.json"
@@ -94,10 +91,7 @@
       "path": "vsts-msbuild-helper/v0/icon.png"
     },
     {
-      "path": "vsts-msbuild-helper/v1/vsts-msbuild-helper.js"
-    },
-    {
-      "path": "vsts-msbuild-helper/v1/node_modules"
+      "path": "vsts-msbuild-helper/v1/dist"
     },
     {
       "path": "vsts-msbuild-helper/v1/task.json"
@@ -108,13 +102,23 @@
   ],
   "contributions": [
     {
-      "id": "vsts-msbuild-helper",
+      "id": "vsts-msbuild-helper-v0",
       "type": "ms.vss-distributed-task.task",
       "targets": [
         "ms.vss-distributed-task.tasks"
       ],
       "properties": {
-        "name": "vsts-msbuild-helper"
+        "name": "vsts-msbuild-helper/v0"
+      }
+    },
+    {
+      "id": "vsts-msbuild-helper-v1",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "vsts-msbuild-helper/v1"
       }
     }
   ]

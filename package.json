@@ -1,9 +1,11 @@
 {
   "name": "jessehouwing-vsts-msbuild-helper-task",
+  "version": "1.0.0",
+  "packageManager": "npm@11.2.0",
   "description": "Azure Pipelines MsBuild Helper",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jessehouwing/azure-pipelines-msbuild-helper-task"
+    "url": "https://github.com/jessehouwing/azure-pipelines-msbuild-helper-task.git"
   },
   "keywords": [
     "vsts",
@@ -11,32 +13,39 @@
     "azure-devops",
     "azure-pipelines"
   ],
+  "workspaces": [
+    "vsts-msbuild-helper/v0",
+    "vsts-msbuild-helper/v1"
+  ],
   "scripts": {
-    "initdev": "npm run initdev:npm",
-    "initdev:npm": "npm run initdev:npm:base & npm run initdev:npm:tasks",
-    "initdev:npm:base": "npm install --no-progress --no-update-notifier",
-    "initdev:npm:tasks": "glob-exec --parallel --foreach \"vsts-msbuild-helper/*/tsconfig.json\" -- \"cd {{file.dir}} && npm install --no-update-notifier --no-progress\"",
-    "compile:tasks": "glob-exec --foreach \"vsts-msbuild-helper/*/tsconfig.json\" -- \"cd {{file.dir}} && npx tsc\"",
-    "postcompile:tasks": "npm run lint:tasks",
-    "cleanup:tasks": "glob-exec --parallel --foreach \"vsts-msbuild-helper/*/tsconfig.json\" -- \"cd {{file.dir}} && npm dedupe && npm prune --production\"",
-    "lint:tasks": "eslint \"vsts-msbuild-helper/**/*.ts\"",
+    "build": "npm run build --workspaces --if-present",
+    "build:clean": "npm run clean && npm install --legacy-peer-deps && npm run build",
     "package:tasks": "tfx extension create --root . --output-path dist --manifest-globs vss-extension.json",
-    "build": "npm run build:tasks",
-    "build:clean": "npm run clean && npm run initdev && npm run build",
-    "build:tasks": "npm run compile:tasks && npm run cleanup:tasks",
-    "package": "npm run build:clean && npm run package:tasks",
+    "test": "jest --no-coverage",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "clean": "git clean -fdX"
   },
   "author": "Jesse Houwing",
   "license": "MIT",
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@types/core-js": "^2.5.8",
+    "@rollup/plugin-commonjs": "^29.0.2",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "@rollup/plugin-typescript": "^12.3.0",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.0.0",
     "eslint": "^10.1.0",
-    "glob-exec": "^0.1.1",
     "globals": "^17.4.0",
+    "jest": "^30.0.0",
+    "rollup": "^4.0.0",
     "tfx-cli": "^0.23.1",
-    "typescript": "^5.9.3",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
+    "tslib": "^2.8.1",
+    "typescript": "^6.0.2",
     "typescript-eslint": "^8.57.2"
   }
 }

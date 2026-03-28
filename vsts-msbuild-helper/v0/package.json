@@ -1,21 +1,16 @@
 {
-  "name": "vsts-msbuild-helper-task",
+  "name": "vsts-msbuild-helper-v0",
   "version": "0.0.0",
-  "description": "MsBuild Helper",
+  "description": "MsBuild Helper Task v0",
   "author": {
     "name": "Jesse Houwing",
     "email": "jesse.houwing@gmail.com"
   },
+  "scripts": {
+    "build": "rollup -c rollup.config.mjs",
+    "clean": "git clean -fdX dist build"
+  },
   "dependencies": {
     "azure-pipelines-task-lib": "^5.2.8"
-  },
-  "scripts": {
-    "initdev:npm": "npm install",
-    "initdev": "npm run initdev:npm",
-    "build": "tsc && npm dedupe && npm prune --production"
-  },
-  "devDependencies": {
-    "@types/node": "^10.17.60",
-    "typescript": "~4.9.5"
   }
 }

@@ -1,0 +1,117 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      extension_version:
+        description: Extension version (e.g. 1.2.3)
+        required: true
+      extension_visibility:
+        description: Extension visibility
+        required: true
+        default: private
+        type: choice
+        options:
+          - private
+          - privatepreview
+          - public
+
+permissions: {}
+
+env:
+  PUBLISHER_ID: jessehouwing
+  EXTENSION_ID: jessehouwing-vsts-msbuild-helper-task
+
+jobs:
+  release:
+    name: Build and Publish Extension
+    runs-on: ubuntu-latest
+    environment:
+      name: publisher-jessehouwing
+      url: https://marketplace.visualstudio.com/items?itemName=${{ env.PUBLISHER_ID }}.${{ env.EXTENSION_ID }}
+
+    permissions:
+      contents: write
+      id-token: write
+
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version-file: '.node-version'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps
+
+      - name: Build
+        run: npm run build
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Test
+        shell: pwsh
+        run: |
+          $stopMarker = [guid]::NewGuid().ToString()
+          Write-Output "::stop-commands::$stopMarker"
+          npm run test
+          Write-Output "::$stopMarker::"
+
+      - name: Install tfx-cli
+        run: npm install -g tfx-cli
+
+      - name: Package extension
+        run: |
+          tfx extension create \
+            --root . \
+            --output-path "${{ runner.temp }}" \
+            --manifest-globs vss-extension.json \
+            --publisher "${{ env.PUBLISHER_ID }}" \
+            --extension-id "${{ env.EXTENSION_ID }}" \
+            --version "${{ inputs.extension_version }}" \
+            --extension-name "MsBuild Helper Tasks" \
+            --override '{"public": ${{ inputs.extension_visibility == 'public' }}}'
+
+      - name: Locate VSIX
+        id: vsix
+        shell: bash
+        run: |
+          VSIX_FILE=$(find "${{ runner.temp }}" -name "*.vsix" | head -1)
+          echo "file=${VSIX_FILE}" >> "$GITHUB_OUTPUT"
+          echo "name=$(basename ${VSIX_FILE})" >> "$GITHUB_OUTPUT"
+
+      - name: Upload VSIX artifact
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: vsix-${{ inputs.extension_version }}
+          path: ${{ steps.vsix.outputs.file }}
+          if-no-files-found: error
+
+      - name: Azure login (OIDC)
+        uses: azure/login@a457da9ea143b81b9c9c3566c3d0169f09e65d87 # v2.3.0
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          allow-no-subscriptions: true
+
+      - name: Publish to Marketplace
+        shell: bash
+        run: |
+          ACCESS_TOKEN=$(az account get-access-token --resource 499b84ac-1321-427f-aa17-267ca6975798 --query accessToken -o tsv)
+          tfx extension publish \
+            --vsix "${{ steps.vsix.outputs.file }}" \
+            --auth-type aat \
+            --token "${ACCESS_TOKEN}" \
+            --no-wait-validation
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@da05d552573ad5aba039eaac05058a918a7bf631 # v2.2.2
+        if: ${{ inputs.extension_visibility == 'public' }}
+        with:
+          tag_name: v${{ inputs.extension_version }}
+          name: v${{ inputs.extension_version }}
+          generate_release_notes: true
+          files: ${{ steps.vsix.outputs.file }}
