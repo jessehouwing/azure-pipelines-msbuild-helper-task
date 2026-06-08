@@ -1,5 +1,10 @@
 # Release Notes
 
+> ** 9th of June 2026 **
+> - Updated: Upgraded to recent dev stack
+> - Pipeline moved to GitHub Actions
+> - Added unit and integration tests
+
 > **4-1-2017**
 > - Updated: Latest vsts-task-lib & typescript version
 
