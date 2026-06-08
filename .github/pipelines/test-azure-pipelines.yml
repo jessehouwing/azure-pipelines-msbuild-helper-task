@@ -16,14 +16,15 @@ trigger: none
 pr: none
 
 parameters:
-  - name: vmImage
-    type: string
-    default: windows-latest
+- name: vmImage
+  type: string
+  default: windows-latest
 
-pool:
-  vmImage: ${{ parameters.vmImage }}
-
-steps:
+jobs:
+- job: Test
+  pool:
+    vmImage: ${{ parameters.vmImage }}
+  steps:
   - checkout: self
 
   - task: NodeTool@0
