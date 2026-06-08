@@ -289,10 +289,10 @@ jobs:
         id: run-azdo-pipeline
         env:
           AZURE_DEVOPS_EXT_PAT: ${{ steps.get-azdo-token.outputs.azdo_token }}
-          AZDO_PIPELINE_NAME: ${{ vars.AZDO_TEST_PIPELINE_NAME }}
+          AZDO_PIPELINE_NAME: jessehouwing.azure-pipelines-msbuild-helper-task
           RELEASE_VERSION: ${{ needs.prepare-release.outputs.version }}
           AZDO_ORGANIZATION: https://dev.azure.com/jessehouwing-dev
-          AZDO_PROJECT: azure-devops-extensions
+          AZDO_PROJECT: azure-pipelines-msbuild-helper-task-test
           TEST_VM_IMAGE: ${{ matrix.vmImage }}
         shell: pwsh
         run: |
