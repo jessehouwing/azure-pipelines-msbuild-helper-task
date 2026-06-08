@@ -102,7 +102,7 @@
   ],
   "contributions": [
     {
-      "id": "vsts-msbuild-helper",
+      "id": "vsts-msbuild-helper-v0",
       "type": "ms.vss-distributed-task.task",
       "targets": [
         "ms.vss-distributed-task.tasks"
