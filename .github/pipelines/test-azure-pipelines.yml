@@ -27,10 +27,10 @@ jobs:
   steps:
   - checkout: self
 
-  - task: NodeTool@0
+  - task: UseNode@1
     displayName: Setup Node.js
     inputs:
-      versionSpec: '24.x'
+      version: '24.x'
 
   - task: MsBuildHelperTask@1
     displayName: 'Test MsBuild Helper Task - Basic Configuration'
