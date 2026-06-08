@@ -105,6 +105,9 @@ jobs:
         run: npm run lint
 
       - name: Test
+        # Disable workflow commands during test execution to prevent test
+        # output (e.g. ##vso or ::set-output) from being interpreted as
+        # actual workflow commands.
         shell: pwsh
         run: |
           $stopMarker = [guid]::NewGuid().ToString()
