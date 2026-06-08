@@ -233,7 +233,7 @@ jobs:
             https://dev.azure.com/jessehouwing-dev
 
       - name: Wait for installation
-        uses: jessehouwing/azdo-marketplace@d86e7c4824e1ed5a35fd8088a51b561b7ffc9a0e #v6.2.2
+        uses: jessehouwing/azdo-marketplace@6139b658bdf9048217eb414ad6a4226bf93c3a48 #v6.2.2
         with:
           operation: wait-for-installation
           auth-type: oidc
