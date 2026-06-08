@@ -102,23 +102,13 @@
   ],
   "contributions": [
     {
-      "id": "vsts-msbuild-helper-v0",
+      "id": "vsts-msbuild-helper",
       "type": "ms.vss-distributed-task.task",
       "targets": [
         "ms.vss-distributed-task.tasks"
       ],
       "properties": {
-        "name": "vsts-msbuild-helper/v0"
-      }
-    },
-    {
-      "id": "vsts-msbuild-helper-v1",
-      "type": "ms.vss-distributed-task.task",
-      "targets": [
-        "ms.vss-distributed-task.tasks"
-      ],
-      "properties": {
-        "name": "vsts-msbuild-helper/v1"
+        "name": "vsts-msbuild-helper"
       }
     }
   ]
