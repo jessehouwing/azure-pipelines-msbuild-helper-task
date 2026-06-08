@@ -67,7 +67,7 @@ steps:
       echo "Deploy Arguments: $(MsBuildDeployArgs)"
     displayName: 'Verify deploy variable is set'
 
-  - task: MsBuildHelperTask@0
+  - task: MsBuildHelperTask@1
     displayName: 'Test MsBuild Helper Task v0 - Backward Compatibility'
     inputs:
       variableName: 'MsBuildV0Args'
