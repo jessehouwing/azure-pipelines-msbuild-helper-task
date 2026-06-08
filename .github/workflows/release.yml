@@ -128,7 +128,7 @@ jobs:
           publisher-id: ${{ env.PUBLISHER_ID }}
           extension-id: ${{ env.EXTENSION_ID }}
           extension-version: ${{ steps.resolve.outputs.version }}
-          update-tasks-version: patch
+          update-tasks-version: minor
           output-path: ${{ runner.temp }}
 
       - name: Upload VSIX artifact
