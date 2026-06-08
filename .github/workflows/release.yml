@@ -28,7 +28,6 @@ permissions: {}
 
 env:
   PUBLISHER_ID: jessehouwing
-  PUBLISHER_ID_DEV: jessehouwing
   EXTENSION_ID: jessehouwing-vsts-msbuild-helper-task
 
 jobs:
@@ -38,7 +37,7 @@ jobs:
   # ---------------------------------------------------------------------------
   prepare-release:
     name: Prepare release
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     permissions:
       contents: write
     outputs:
@@ -161,10 +160,10 @@ jobs:
   preview-release:
     name: Preview release (Azure DevOps)
     needs: [prepare-release]
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     environment:
       name: 'private'
-      url: https://marketplace.visualstudio.com/items?itemName=${{ env.PUBLISHER_ID_DEV }}.${{ env.EXTENSION_ID }}-dev
+      url: https://marketplace.visualstudio.com/items?itemName=${{ env.PUBLISHER_ID }}.${{ env.EXTENSION_ID }}-dev
 
     permissions:
       contents: read
@@ -201,7 +200,7 @@ jobs:
           auth-type: oidc
           use: vsix
           vsix-file: ${{ runner.temp }}/vsix/${{ needs.prepare-release.outputs.vsix-file-name }}
-          publisher-id: ${{ env.PUBLISHER_ID_DEV }}
+          publisher-id: ${{ env.PUBLISHER_ID }}
           extension-id: ${{ env.EXTENSION_ID }}-dev
           extension-visibility: private_preview
           update-tasks-id: true
@@ -224,7 +223,7 @@ jobs:
             https://dev.azure.com/jessehouwing-dev
 
       - name: Install extension
-        uses: jessehouwing/azdo-marketplace@d86e7c4824e1ed5a35fd8088a51b561b7ffc9a0e #v6.2.2
+        uses: jessehouwing/azdo-marketplace@6139b658bdf9048217eb414ad6a4226bf93c3a48 #v6.2.2
         with:
           operation: install
           auth-type: oidc
@@ -400,7 +399,7 @@ jobs:
   publish-production:
     name: Publish to marketplace
     needs: [prepare-release, preview-release, test-azure-pipelines]
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     environment:
       name: public
       url: https://marketplace.visualstudio.com/items?itemName=${{ env.PUBLISHER_ID }}.${{ env.EXTENSION_ID }}
