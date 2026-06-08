@@ -500,6 +500,7 @@ jobs:
     needs: [prepare-release, publish-production]
     runs-on: ubuntu-latest
     if: always() && needs.publish-production.result == 'success'
+    environment: private
 
     permissions:
       contents: read
