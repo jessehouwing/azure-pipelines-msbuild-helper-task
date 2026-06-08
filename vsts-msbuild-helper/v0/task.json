@@ -390,12 +390,16 @@
   ],
   "instanceNameFormat": "Setup MsBuild Additional Arguments",
   "execution": {
-    "Node": {
-      "target": "vsts-msbuild-helper.js",
+    "Node16": {
+      "target": "dist/vsts-msbuild-helper.js",
       "argumentFormat": ""
     },
-    "Node10": {
-      "target": "vsts-msbuild-helper.js",
+    "Node20_1": {
+      "target": "dist/vsts-msbuild-helper.js",
+      "argumentFormat": ""
+    },
+    "Node24": {
+      "target": "dist/vsts-msbuild-helper.js",
       "argumentFormat": ""
     }
   }

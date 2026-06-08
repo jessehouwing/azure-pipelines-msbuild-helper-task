@@ -240,6 +240,9 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
-/dist/-msbuild-helper-task
-/vsts-msbuild-helper/v*/*.js.map
-/vsts-msbuild-helper/v*/*.js
+dist/
+build/
+coverage/
+tsconfig.tsbuildinfo
+vsts-msbuild-helper/*/tsconfig.tsbuildinfo
+*.vsix
