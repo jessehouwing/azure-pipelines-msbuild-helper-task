@@ -440,6 +440,7 @@ jobs:
           use: vsix
           vsix-file: ${{ runner.temp }}/vsix/${{ needs.prepare-release.outputs.vsix-file-name }}
           no-wait-validation: true
+          extension-visibility: public
 
       - name: Wait for validation
         uses: jessehouwing/azdo-marketplace@8c16d36185057fa4d80bb9361a22097525204c9e #v6.2.2
