@@ -164,7 +164,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: 'private'
-      url: https://marketplace.visualstudio.com/items?itemName=${{ env.PUBLISHER_ID_DEV }}.${{ env.EXTENSION_ID }}-pre
+      url: https://marketplace.visualstudio.com/items?itemName=${{ env.PUBLISHER_ID_DEV }}.${{ env.EXTENSION_ID }}-dev
 
     permissions:
       contents: read
@@ -202,7 +202,7 @@ jobs:
           use: vsix
           vsix-file: ${{ runner.temp }}/vsix/${{ needs.prepare-release.outputs.vsix-file-name }}
           publisher-id: ${{ env.PUBLISHER_ID_DEV }}
-          extension-id: ${{ env.EXTENSION_ID }}-pre
+          extension-id: ${{ env.EXTENSION_ID }}-dev
           extension-visibility: private_preview
           update-tasks-id: true
           no-wait-validation: true
