@@ -121,7 +121,7 @@ jobs:
           Write-Host "::$stopMarker::"
 
       - name: Package extension
-        uses: jessehouwing/azdo-marketplace@v6
+        uses: jessehouwing/azdo-marketplace@d86e7c4824e1ed5a35fd8088a51b561b7ffc9a0e #v6.2.2
         id: package
         with:
           operation: package
@@ -194,7 +194,7 @@ jobs:
           allow-no-subscriptions: true
 
       - name: Publish preview extension
-        uses: jessehouwing/azdo-marketplace@v6
+        uses: jessehouwing/azdo-marketplace@d86e7c4824e1ed5a35fd8088a51b561b7ffc9a0e #v6.2.2
         id: publish
         with:
           operation: publish
@@ -208,14 +208,14 @@ jobs:
           no-wait-validation: true
 
       - name: Wait for validation
-        uses: jessehouwing/azdo-marketplace@v6
+        uses: jessehouwing/azdo-marketplace@d86e7c4824e1ed5a35fd8088a51b561b7ffc9a0e #v6.2.2
         with:
           operation: wait-for-validation
           auth-type: oidc
           vsix-file: ${{ steps.publish.outputs.vsix-file }}
 
       - name: Share extension
-        uses: jessehouwing/azdo-marketplace@v6
+        uses: jessehouwing/azdo-marketplace@d86e7c4824e1ed5a35fd8088a51b561b7ffc9a0e #v6.2.2
         with:
           operation: share
           auth-type: oidc
@@ -224,7 +224,7 @@ jobs:
             https://dev.azure.com/jessehouwing-dev
 
       - name: Install extension
-        uses: jessehouwing/azdo-marketplace@v6
+        uses: jessehouwing/azdo-marketplace@d86e7c4824e1ed5a35fd8088a51b561b7ffc9a0e #v6.2.2
         with:
           operation: install
           auth-type: oidc
@@ -233,7 +233,7 @@ jobs:
             https://dev.azure.com/jessehouwing-dev
 
       - name: Wait for installation
-        uses: jessehouwing/azdo-marketplace@v6
+        uses: jessehouwing/azdo-marketplace@d86e7c4824e1ed5a35fd8088a51b561b7ffc9a0e #v6.2.2
         with:
           operation: wait-for-installation
           auth-type: oidc
@@ -433,7 +433,7 @@ jobs:
           allow-no-subscriptions: true
 
       - name: Publish production extension
-        uses: jessehouwing/azdo-marketplace@v6
+        uses: jessehouwing/azdo-marketplace@d86e7c4824e1ed5a35fd8088a51b561b7ffc9a0e #v6.2.2
         id: publish
         with:
           operation: publish
@@ -443,7 +443,7 @@ jobs:
           no-wait-validation: true
 
       - name: Wait for validation
-        uses: jessehouwing/azdo-marketplace@v6
+        uses: jessehouwing/azdo-marketplace@d86e7c4824e1ed5a35fd8088a51b561b7ffc9a0e #v6.2.2
         with:
           operation: wait-for-validation
           auth-type: oidc
@@ -519,7 +519,7 @@ jobs:
           allow-no-subscriptions: true
 
       - name: Unshare preview extension
-        uses: jessehouwing/azdo-marketplace@v6
+        uses: jessehouwing/azdo-marketplace@d86e7c4824e1ed5a35fd8088a51b561b7ffc9a0e #v6.2.2
         continue-on-error: true
         with:
           operation: unshare
