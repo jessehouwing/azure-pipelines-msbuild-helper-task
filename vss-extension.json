@@ -28,13 +28,13 @@
   ],
   "screenshots": [
     {
-      "path": "extension/Images/Screenshots/add-task.png"
+      "path": "extension/images/Screenshots/add-task.png"
     },
     {
-      "path": "extension/Images/Screenshots/setup.png"
+      "path": "extension/images/Screenshots/setup.png"
     },
     {
-      "path": "extension/Images/Screenshots/configure-msbuild.png"
+      "path": "extension/images/Screenshots/configure-msbuild.png"
     }
   ],
   "content": {
