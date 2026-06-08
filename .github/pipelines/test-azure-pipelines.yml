@@ -1,0 +1,78 @@
+# Test Azure Pipelines
+#
+# Triggered by the release workflow to validate the MsBuild Helper task
+# against a real Azure Pipelines build after installing the preview extension
+# in the jessehouwing-dev organization.
+#
+# Required service connections:
+#   MarketplaceAzureRmConnection - Azure RM (OIDC) service connection
+#
+# Required parameters per run:
+#   vmImage - Hosted agent image (ubuntu-latest/windows-latest)
+
+name: test-$(Date:yyyyMMdd)$(Rev:.r)
+
+trigger: none
+pr: none
+
+parameters:
+  - name: vmImage
+    type: string
+    default: windows-latest
+
+pool:
+  vmImage: ${{ parameters.vmImage }}
+
+steps:
+  - checkout: self
+
+  - task: NodeTool@0
+    displayName: Setup Node.js
+    inputs:
+      versionSpec: '24.x'
+
+  - task: MsBuildHelperTask@1
+    displayName: 'Test MsBuild Helper Task - Basic Configuration'
+    inputs:
+      variableName: 'MsBuildAdditionalArguments'
+      MsBuildTargetClean: true
+      MsBuildTargetBuild: true
+      MsBuildBuildInParallel: 'true'
+      TreatWarningsAsError: 'true'
+
+  - script: |
+      echo "MsBuild Additional Arguments: $(MsBuildAdditionalArguments)"
+    displayName: 'Verify output variable is set'
+
+  - task: MsBuildHelperTask@1
+    displayName: 'Test MsBuild Helper Task - Code Analysis'
+    inputs:
+      variableName: 'MsBuildCodeAnalysisArgs'
+      RunCodeAnalysis: 'true'
+      CodeAnalysisRuleset: 'MinimumRecommendedRules'
+      CodeAnalysisTreatWarningsAsErrors: true
+
+  - script: |
+      echo "Code Analysis Arguments: $(MsBuildCodeAnalysisArgs)"
+    displayName: 'Verify code analysis variable is set'
+
+  - task: MsBuildHelperTask@1
+    displayName: 'Test MsBuild Helper Task - Deploy Configuration'
+    inputs:
+      variableName: 'MsBuildDeployArgs'
+      DeployOnBuild: 'true'
+      PackageLocation: 'StagingDirectory'
+
+  - script: |
+      echo "Deploy Arguments: $(MsBuildDeployArgs)"
+    displayName: 'Verify deploy variable is set'
+
+  - task: MsBuildHelperTask@0
+    displayName: 'Test MsBuild Helper Task v0 - Backward Compatibility'
+    inputs:
+      variableName: 'MsBuildV0Args'
+      MsBuildTargetClean: true
+
+  - script: |
+      echo "V0 Arguments: $(MsBuildV0Args)"
+    displayName: 'Verify v0 output variable is set'
