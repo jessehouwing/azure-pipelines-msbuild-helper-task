@@ -59,7 +59,7 @@
       "uri": "https://github.com/jessehouwing/azure-pipelines-msbuild-helper-task/LICENSE.md"
     },
     "privacypolicy": {
-      "uri": "https://github.com/jessehouwing/azure-pipelines-msbuild-helper-task/blob/master/PRIVACY.md"
+      "uri": "https://github.com/jessehouwing/azure-pipelines-msbuild-helper-task/PRIVACY.md"
     }
   },
   "badges": [
@@ -101,7 +101,16 @@
     }
   ],
   "contributions": [
-
+    {
+      "id": "vsts-msbuild-helper-v0",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "vsts-msbuild-helper/v0"
+      }
+    },
     {
       "id": "vsts-msbuild-helper-v1",
       "type": "ms.vss-distributed-task.task",
