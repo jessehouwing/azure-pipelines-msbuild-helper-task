@@ -9,7 +9,7 @@
   "version": {
     "Major": 0,
     "Minor": 3,
-    "Patch": 0
+    "Patch": 2
   },
   "visibility": [
     "Build"
@@ -61,7 +61,6 @@
       "required": true,
       "type": "string"
     },
-
     {
       "defaultValue": "false",
       "groupName": "MsBuildTargets",
@@ -89,9 +88,6 @@
       "required": false,
       "type": "string"
     },
-
-
-
     {
       "defaultValue": "AsConfigured",
       "groupName": "MsBuildBasic",
@@ -117,7 +113,6 @@
       "type": "filePath",
       "visibleRule": "MsBuildBaseOutputPath=Custom"
     },
-
     {
       "defaultValue": "AsConfigured",
       "groupName": "MsBuildBasic",
@@ -217,7 +212,6 @@
       "required": false,
       "type": "filePath"
     },
-
     {
       "defaultValue": "AsConfigured",
       "groupName": "CodeAnalysis",
@@ -286,10 +280,6 @@
       "required": false,
       "type": "string"
     },
-
-
-
-
     {
       "defaultValue": "AsConfigured",
       "groupName": "LayerValidation",
@@ -304,7 +294,6 @@
       "required": false,
       "type": "pickList"
     },
-
     {
       "defaultValue": "AsConfigured",
       "groupName": "ASPNET",
@@ -361,7 +350,6 @@
       "required": false,
       "type": "pickList"
     },
-
     {
       "defaultValue": "AsConfigured",
       "groupName": "Deploy",
