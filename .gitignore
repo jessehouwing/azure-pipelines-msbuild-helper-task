@@ -246,3 +246,6 @@ coverage/
 tsconfig.tsbuildinfo
 vsts-msbuild-helper/*/tsconfig.tsbuildinfo
 *.vsix
+
+*.js
+*.js.map
