@@ -28,7 +28,7 @@ permissions: {}
 
 env:
   PUBLISHER_ID: jessehouwing
-  PUBLISHER_ID_DEV: jessehouwing-dev
+  PUBLISHER_ID_DEV: jessehouwing
   EXTENSION_ID: jessehouwing-vsts-msbuild-helper-task
 
 jobs:
@@ -163,7 +163,7 @@ jobs:
     needs: [prepare-release]
     runs-on: ubuntu-latest
     environment:
-      name: 'publisher-jessehouwing-dev'
+      name: 'private'
       url: https://marketplace.visualstudio.com/items?itemName=${{ env.PUBLISHER_ID_DEV }}.${{ env.EXTENSION_ID }}-pre
 
     permissions:
@@ -256,7 +256,7 @@ jobs:
           - ubuntu-latest
           - windows-latest
     environment:
-      name: 'publisher-jessehouwing-dev'
+      name: 'private'
       url: ${{ steps.run-azdo-pipeline.outputs.pipeline_run_url }}
 
     permissions:
@@ -402,7 +402,7 @@ jobs:
     needs: [prepare-release, preview-release, test-azure-pipelines]
     runs-on: ubuntu-latest
     environment:
-      name: publisher-jessehouwing
+      name: public
       url: https://marketplace.visualstudio.com/items?itemName=${{ env.PUBLISHER_ID }}.${{ env.EXTENSION_ID }}
 
     permissions:
