@@ -1,6 +1,6 @@
 # Release Notes
 
-> ** 9th of June 2026 **
+> **9th of June 2026**
 > - Updated: Upgraded to recent dev stack
 > - Pipeline moved to GitHub Actions
 > - Added unit and integration tests
