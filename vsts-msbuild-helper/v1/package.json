@@ -11,6 +11,6 @@
     "clean": "git clean -fdX dist build"
   },
   "dependencies": {
-    "azure-pipelines-task-lib": "^5.2.10"
+    "azure-pipelines-task-lib": "^5.277.0"
   }
 }
