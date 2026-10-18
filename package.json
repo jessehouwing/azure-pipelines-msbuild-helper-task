@@ -1,7 +1,7 @@
 {
   "name": "jessehouwing-vsts-msbuild-helper-task",
   "version": "1.0.0",
-  "packageManager": "npm@11.16.0",
+  "packageManager": "npm@11.21.1",
   "description": "Azure Pipelines MsBuild Helper",
   "repository": {
     "type": "git",
@@ -36,16 +36,16 @@
     "@rollup/plugin-node-resolve": "^16.0.3",
     "@rollup/plugin-typescript": "^12.3.0",
     "@types/jest": "^30.0.0",
-    "@types/node": "^24.13.1",
-    "eslint": "^10.4.1",
-    "globals": "^17.6.0",
-    "jest": "^30.4.2",
-    "rollup": "^4.61.1",
-    "tfx-cli": "^0.23.1",
-    "ts-jest": "^29.4.11",
+    "@types/node": "^24.19.2",
+    "eslint": "^10.13.0",
+    "globals": "^17.13.0",
+    "jest": "^30.5.2",
+    "rollup": "^4.64.9",
+    "tfx-cli": "^0.24.2",
+    "ts-jest": "^29.4.15",
     "ts-node": "^10.9.2",
     "tslib": "^2.8.1",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.61.0"
+    "typescript-eslint": "^8.71.2"
   }
 }
