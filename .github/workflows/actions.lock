@@ -6,7 +6,7 @@ workflows:
     '.github/workflows/actions-dependency-submission.yml':
         - 'actions/checkout@v7.0.1'
         - 'actions/dependency-review-action@v5.0.0'
-        - 'jessehouwing/actions-dependency-submission@v1.0.18'
+        - 'jessehouwing/actions-dependency-submission@v2.0.2'
         - 'step-security/harden-runner@v2.21.1'
     '.github/workflows/ci.yml':
         - 'actions/checkout@v7.0.1'
@@ -65,9 +65,9 @@ dependencies:
         repo_id: 200299178
         uses:
             - 'actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd'
-    'jessehouwing/actions-dependency-submission@v1.0.18':
-        ref: 'v1.0.18'
-        commit: 'sha1-e2b3e9796d0244169daa3728069419ddde6f9015'
+    'jessehouwing/actions-dependency-submission@v2.0.2':
+        ref: 'v2.0.2'
+        commit: 'sha1-811981eec3c108f41783f194522fde91a34301a4'
         owner_id: 4173387
         repo_id: 1109249632
     'jessehouwing/azdo-marketplace@v6.3.16':
