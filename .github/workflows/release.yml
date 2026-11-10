@@ -485,7 +485,7 @@ jobs:
           git push origin "v$version"
 
       - name: Create GitHub Release
-        uses: softprops/action-gh-release@v3.0.3
+        uses: softprops/action-gh-release@v3.0.4
         with:
           tag_name: v${{ needs.prepare-release.outputs.version }}
           name: v${{ needs.prepare-release.outputs.version }}
