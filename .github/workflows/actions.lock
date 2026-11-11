@@ -20,7 +20,7 @@ workflows:
         - 'actions/upload-artifact@v7.0.2'
         - 'azure/login@v3.1.0'
         - 'jessehouwing/azdo-marketplace@v6.3.16'
-        - 'softprops/action-gh-release@v3.0.3'
+        - 'softprops/action-gh-release@v3.0.4'
         - 'step-security/harden-runner@v2.22.2'
 dependencies:
     'actions/checkout@v7.0.1':
@@ -75,9 +75,9 @@ dependencies:
         commit: 'sha1-1c6d0b1857ded127f882c0d26f22b4bd103afd2a'
         owner_id: 4173387
         repo_id: 1158033287
-    'softprops/action-gh-release@v3.0.3':
-        ref: 'v3.0.3'
-        commit: 'sha1-efb35369e0ad2afab669f228072c1b0d510eae64'
+    'softprops/action-gh-release@v3.0.4':
+        ref: 'v3.0.4'
+        commit: 'sha1-8a0cd651e5b2365bd640854a3fa5dfc70e4875f3'
         owner_id: 2242
         repo_id: 204253808
     'step-security/harden-runner@v2.22.2':
