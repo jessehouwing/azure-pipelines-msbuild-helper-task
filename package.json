@@ -38,7 +38,7 @@
     "@rollup/plugin-typescript": "^12.3.1",
     "@types/jest": "^30.0.0",
     "@types/node": "^24.19.2",
-    "eslint": "^10.14.0",
+    "eslint": "^10.15.0",
     "globals": "^17.14.0",
     "jest": "^30.5.2",
     "rollup": "^4.68.2",
