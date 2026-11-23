@@ -5,6 +5,11 @@
   ],
   "packageRules": [
     {
+      "description": "Keep Node.js within Azure Pipelines task runtime support",
+      "matchDatasources": ["node-version"],
+      "allowedVersions": "/^v?(?:[0-9]|1[0-9]|2[0-4])(?:\\.|$)/"
+    },
+    {
       "packageNames": [
         "azure-pipelines-task-lib",
         "@types/node"
