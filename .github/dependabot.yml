@@ -33,10 +33,24 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "weekly"
+    cooldown:
+      default-days: 3
+    groups:
+      minor-updates:
+        update-types:
+          - minor
+          - patch
   - package-ecosystem: "npm" # See documentation for possible values
     directory: "/vsts-msbuild-helper/v0" # Location of package manifests
     schedule:
       interval: "weekly"
+    cooldown:
+      default-days: 3
+    groups:
+      minor-updates:
+        update-types:
+          - minor
+          - patch
     ignore:
     - dependency-name: "azure-pipelines-task-lib"
       update-types: ["version-update:semver-major"]
@@ -48,6 +62,13 @@ updates:
     directory: "/vsts-msbuild-helper/v1" # Location of package manifests
     schedule:
       interval: "weekly"
+    cooldown:
+      default-days: 3
+    groups:
+      minor-updates:
+        update-types:
+          - minor
+          - patch
     ignore:
     - dependency-name: "azure-pipelines-task-lib"
       update-types: ["version-update:semver-major"]
