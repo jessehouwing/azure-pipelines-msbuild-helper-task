@@ -1,4 +1,4 @@
 # Python tooling used by CI; versions are managed by Dependabot.
 pre-commit==4.7.0
-zizmor==1.32.0
+zizmor==1.33.1
 check-jsonschema==0.39.0
