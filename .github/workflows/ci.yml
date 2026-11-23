@@ -9,6 +9,37 @@ on:
 permissions: {}
 
 jobs:
+  validate-workflows:
+    name: Validate YAML and GitHub workflows
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Harden runner
+        uses: step-security/harden-runner@v2.23.0
+        with:
+          egress-policy: audit
+
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-python@v7.1.0
+        with:
+          python-version-file: '.python-version'
+
+      - name: Install validation tooling
+        run: python3 -m pip install -r requirements-dev.txt
+
+      - name: Validate GitHub workflows, including release
+        run: check-jsonschema --builtin-schema vendor.github-workflows .github/workflows/*.yml
+
+      - name: Validate Dependabot configuration
+        run: check-jsonschema --builtin-schema vendor.dependabot .github/dependabot.yml
+
+      - name: Check Azure Pipelines YAML syntax
+        run: python3 -c "from ruamel.yaml import YAML; YAML(typ='safe').load(open('.github/pipelines/test-azure-pipelines.yml', encoding='utf-8'))"
+
   build:
     name: Build, Test and Lint
     runs-on: ubuntu-latest
